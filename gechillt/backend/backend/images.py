@@ -2,8 +2,7 @@ import json
 
 import falcon
 
-class Resource(object):
-
+class ImagesResource(object):
     def on_get(self, req, resp):
         doc = {
             'images': [
@@ -12,8 +11,6 @@ class Resource(object):
                 }
             ]
         }
-
         # Create a JSON representation of the resource
         resp.body = json.dumps(doc, ensure_ascii=False)
-
         resp.status = falcon.HTTP_200
