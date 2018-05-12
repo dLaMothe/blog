@@ -1,6 +1,3 @@
-# things.py
-
-# Let's get this party started!
 import falcon
 
 
@@ -15,12 +12,3 @@ class PostsResource(object):
                      'above me and the moral law within me.\n'
                      '\n'
                      '    ~ Immanuel Kant\n\n')
-
-# falcon.API instances are callable WSGI apps
-app = falcon.API()
-
-# Resources are represented by long-lived class instances
-posts = PostsResource()
-
-# things will handle all requests to the '/things' URL path
-app.add_route('/posts', posts)
