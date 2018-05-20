@@ -25,5 +25,8 @@ yarn-error.log*
 
 # python
 *.pyo
-*.pyc 
-.venv  
+*.pyc
+.venv
+.pytest_cache
+
+*.png
