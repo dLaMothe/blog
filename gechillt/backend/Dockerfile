@@ -9,7 +9,7 @@ RUN pip install gunicorn
 RUN pip install falcon
 
 # Add demo app
-COPY ./backend /app
-WORKDIR /app
+COPY ./backend /backend
+WORKDIR /backend
 
-CMD ["gunicorn", "-b", "0.0.0.0:80", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:80", "app:API"]
