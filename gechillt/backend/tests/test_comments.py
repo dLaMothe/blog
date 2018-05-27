@@ -2,7 +2,7 @@ import falcon
 from falcon import testing
 import pytest
 
-from backend.comments import CommentsResource
+from backend.resources import comments
 
 
 @pytest.fixture

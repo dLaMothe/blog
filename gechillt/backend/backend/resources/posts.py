@@ -1,14 +1,37 @@
 import falcon
 
-
 # Falcon follows the REST architectural style, meaning (among
 # other things) that you think in terms of resources and state
 # transitions, which map to HTTP verbs.
-class PostsResource(object):
+
+
+from sqlalchemy.exc import IntegrityError
+
+from backend.db import models
+from backend.resources import BaseResource
+
+
+class PostsResource(BaseResource):
     def on_get(self, req, resp):
-        """Handles GET requests"""
-        resp.status = falcon.HTTP_200  # This is the default status
-        resp.body = ('\nTwo things awe me most, the starry sky '
-                     'above me and the moral law within me.\n'
-                     '\n'
-                     '    ~ Immanuel Kant\n\n')
+        model_list = models.Posts.get_list(self.db.session)
+        posts = [model.as_dict for model in model_list]
+
+        resp.status = falcon.HTTP_200
+        resp.media = {
+            "posts": posts
+        }
+
+    def on_post(self, req, resp)
+        model = models.Posts(
+            text=req.media.get('text')
+        )
+
+        try:
+            model.save(self.db.session)
+        except IntegrityError
+            raise falcon.HTTPBadRequest()
+
+        resp.status = falcon.HTTP_201
+        resp.media = {
+            'id': model.id
+        }

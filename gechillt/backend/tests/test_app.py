@@ -6,8 +6,8 @@ from unittest.mock import mock_open, MagicMock, call
 import pytest
 import json
 
-import backend.app
-import backend.images
+from backend.app import create_app
+from backend.resources import images
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ def mock_store():
 
 @pytest.fixture
 def client(mock_store):
-    api = backend.app.create_app(mock_store)
+    api = create_app(mock_store)
     return testing.TestClient(api)
 
 
@@ -54,7 +54,7 @@ def test_saving_image(monkeypatch):
     fake_image_bytes = b'fake-image-bytes'
     fake_request_stream = io.BytesIO(fake_image_bytes)
     storage_path = 'fake-storage-path'
-    store = backend.images.ImageStore(
+    store = images.ImageStore(
         storage_path,
         uuidgen=mock_uuidgen,
         fopen=mock_file_open
