@@ -16,6 +16,8 @@ def create_app(image_store):
 
 
 def get_app():
-    storage_path = os.environ.get('BACKEND_STORAGE_PATH', '.')
-    image_store = images.ImageStore(storage_path)
+    image_store = images.ImageStore()
     return create_app(image_store)
+
+
+app = get_app()
