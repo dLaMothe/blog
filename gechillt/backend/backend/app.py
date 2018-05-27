@@ -2,22 +2,21 @@ import os
 
 import falcon
 
-from backend.resources import images
+from backend.resources import posts
+from backend.db.manager import DBManager
 
 
-def create_app(image_store):
+def create_app():
     api = falcon.API()
 
-    api.add_route('/images', images.Collection(image_store))
-    api.add_route('/images/{name}', images.Item(image_store))
-    #api.add_route('/posts', posts)
+    mgr = DBManager()
+    mgr.setup()
+
+    api.add_route('/posts', posts.Collection(mgr))
+    api.add_route('/posts/{name}', posts.Item(mgr))
+    # api.add_route('/posts', posts)
     #api.add_route('/comments', comments)
     return api
 
 
-def get_app():
-    image_store = images.ImageStore()
-    return create_app(image_store)
-
-
-app = get_app()
+API = create_app()
