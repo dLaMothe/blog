@@ -1,9 +1,5 @@
 import falcon
-
-# Falcon follows the REST architectural style, meaning (among
-# other things) that you think in terms of resources and state
-# transitions, which map to HTTP verbs.
-
+import mimetypes
 
 from sqlalchemy.exc import IntegrityError
 
