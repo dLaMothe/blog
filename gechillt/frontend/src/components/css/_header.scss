@@ -1,5 +1,38 @@
 .header {
   grid-column: 1/4;
-  grid-row: 1/2;
-  background-color: blue;
+  grid-row: 2/3;
+  background-color: #333333;
+  display: flex;
+}
+
+.about-me {
+  flex: 1;
+  position: relative;
+}
+
+.about-me--link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.title {
+  flex: 1;
+  position: relative;
+}
+
+.title__text {
+  text-align: justify;
+  text-align: center;
+}
+
+.search {
+  flex: 1;
+  position: relative;
+}
+
+.search__icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
