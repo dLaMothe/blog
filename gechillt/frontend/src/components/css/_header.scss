@@ -1,6 +1,6 @@
 .header {
   grid-column: 1/4;
-  grid-row: 2/3;
+  grid-row: 1/3;
   background-color: #333333;
   display: flex;
 }
@@ -24,6 +24,7 @@
 .title__text {
   text-align: justify;
   text-align: center;
+  vertical-align: middle;
 }
 
 .search {
