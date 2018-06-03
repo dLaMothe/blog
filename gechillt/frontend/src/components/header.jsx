@@ -12,7 +12,9 @@ export default class Header extends React.Component {
           </Link>
         </div>
         <div className="title">
-          <div className="title__text">Title</div>
+          <div className="title__text">
+            <h3>Title</h3>
+          </div>
         </div>
         <div className="search">
           <div className="search__icon">
