@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Search } from '@material-ui/icons/';
+import { Search } from '@material-ui/icons';
 
 export default class Header extends React.Component {
   render() {
