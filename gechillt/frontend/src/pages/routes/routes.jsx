@@ -5,7 +5,7 @@ import Home from '../home/home';
 export default class Router extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div className="router-container">
         <Route exact={true} path="/" component={Home} />
       </div>
     );
