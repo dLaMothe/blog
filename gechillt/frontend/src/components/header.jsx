@@ -7,7 +7,7 @@ export default class Header extends React.Component {
     return (
       <div className="header">
         <div className="about-me">
-          <Link className="about-me--link" to="/about">
+          <Link className="about-me__link" to="/about">
             About Me
           </Link>
         </div>

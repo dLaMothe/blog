@@ -1,0 +1,19 @@
+.navigation__list {
+  grid-column: 1/4;
+  grid-row: 1/2;
+  display: flex;
+  width: 100%;
+}
+
+$nav-color-map: (
+  blue: blue,
+  yellow: yellow,
+  red: red
+);
+
+@each $name, $color in $nav-color-map {
+  .navigation__item--#{$name} {
+    background-color: $color;
+    flex: 1;
+  }
+}
