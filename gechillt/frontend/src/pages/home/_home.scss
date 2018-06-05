@@ -11,7 +11,7 @@
   grid-column: 1/4;
   grid-row: 3/4;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 10px 3fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
@@ -22,15 +22,33 @@
   justify-self: center;
 }
 
-.articles__summary {
+.articles__date {
   grid-column: 2/3;
+  grid-row: 2/3;
+  font-size: 8px;
+  transform: rotate(90deg);
+  transform-origin: left top 0;
+}
+
+.date__span {
+}
+
+.articles__summary {
+  grid-column: 3/4;
   grid-row: 2/3;
   align-self: center;
   justify-self: center;
 }
 
-.articles__right {
+.articles__subtitle {
   grid-column: 3/4;
+  grid-row: 3/4;
+  align-self: center;
+  justify-self: center;
+}
+
+.articles__right {
+  grid-column: 4/5;
   grid-row: 2/3;
   align-self: center;
   justify-self: center;

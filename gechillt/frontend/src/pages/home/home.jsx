@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Navigation from '../../components/navigation';
 import Header from '../../components/header';
-import ArtliceList from './articles';
+import Articles from './articles';
 import Footer from '../../components/footer';
 
 export default class Home extends React.Component {
@@ -10,7 +10,7 @@ export default class Home extends React.Component {
       <div className="home">
         <Navigation />
         <Header />
-        <ArtliceList />
+        <Articles />
         <Footer />
       </div>
     );
