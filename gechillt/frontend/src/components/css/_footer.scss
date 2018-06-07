@@ -9,8 +9,13 @@
 
 .footer__text {
   color: white;
-  overflow: hidden;
   grid-column: 2/3;
   grid-row: 1/2;
   font-size: 8px;
+}
+
+.footer__arrow {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  margin: auto;
 }
