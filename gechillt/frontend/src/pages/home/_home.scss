@@ -33,8 +33,14 @@
 .articles__summary {
   grid-column: 3/4;
   grid-row: 2/3;
-  align-self: center;
-  justify-self: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.articles__summary:hover {
+  text-shadow: 1px 1px gray;
 }
 
 .articles__subtitle {
