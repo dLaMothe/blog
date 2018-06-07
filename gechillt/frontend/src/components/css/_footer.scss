@@ -1,5 +1,16 @@
 .footer {
   grid-column: 1/4;
   grid-row: 4/5;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 2fr 1fr 2fr;
   background-color: #333333;
+}
+
+.footer__text {
+  color: white;
+  overflow: hidden;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  font-size: 8px;
 }
