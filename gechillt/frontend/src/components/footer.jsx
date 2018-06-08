@@ -1,8 +1,11 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { ArrowDownward } from '@material-ui/icons';
 
-export default class Footer extends React.Component {
+export class Footer extends React.Component {
   render() {
+    const { openArticles } = this.props;
+
     return (
       <div className="footer">
         <div className="footer__text">
@@ -12,9 +15,15 @@ export default class Footer extends React.Component {
           </p>
         </div>
         <div className="footer__arrow">
-          <ArrowDownward nativeColor="white" />
+          <ArrowDownward nativeColor="white" onClick={openArticles} />
         </div>
       </div>
     );
   }
 }
+
+Footer.protoTypes = {
+  openArticles: PropTypes.func.isRequired
+};
+
+export default Footer;
