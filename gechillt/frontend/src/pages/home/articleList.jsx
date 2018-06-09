@@ -33,12 +33,15 @@ export default class ArticleList extends React.Component {
         {dummyArticleList.map((article, key) => {
           return (
             <div key={key} className="article-list__summary">
+              <div className="article-list__date">{article.date}</div>
               <div className="article-list__header">
-                {article.title}
+                <h3>{article.title}</h3>
                 {article.tags}
               </div>
-              <div className="article-list__date">{article.date}</div>
-              <div className="article-list__introduction">{article.intro}</div>
+
+              <div className="article-list__introduction">
+                <p>{article.intro}</p>
+              </div>
             </div>
           );
         })}
