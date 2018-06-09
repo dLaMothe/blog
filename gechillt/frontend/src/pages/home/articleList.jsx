@@ -1,6 +1,15 @@
 import * as React from 'react';
 
 export default class ArticleList extends React.Component {
+  componentDidMount() {
+    var i = 10;
+    var int = setInterval(function() {
+      window.scrollTo(0, i);
+      i += 10;
+      if (i >= 200) clearInterval(int);
+    }, 20);
+  }
+
   render() {
     const dummyArticleList = [
       {
