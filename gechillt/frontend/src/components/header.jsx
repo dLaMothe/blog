@@ -5,7 +5,7 @@ import { Search } from '@material-ui/icons';
 export default class Header extends React.Component {
   render() {
     return (
-      <div className="header">
+      <div className="header main__item">
         <div className="about-me">
           <Link className="about-me__link" to="/about">
             About Me

@@ -14,7 +14,7 @@ export default class Navigation extends React.Component {
     const itemClass = 'navigation__item';
 
     return (
-      <div className="navigation__list">
+      <div className="navigation__list main__item">
         {navigationItems.map((item, key) => {
           return <div key={key} className={itemClass + '--' + item.color} />;
         })}

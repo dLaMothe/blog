@@ -7,7 +7,7 @@ export class Footer extends React.Component {
     const { openArticles } = this.props;
 
     return (
-      <div className="footer">
+      <div className="footer main__item">
         <div className="footer__text">
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean

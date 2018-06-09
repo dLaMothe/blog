@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 
 export default class Articles extends React.Component {
   render() {
-    //Get ArticleList to
     const dummyId = 15;
 
     return (
-      <div className="articles">
+      <div className="articles main__item">
         <div className="articles__left">
           <ArrowBack />
         </div>
