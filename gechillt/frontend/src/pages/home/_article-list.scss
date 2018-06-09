@@ -6,11 +6,12 @@
 
 .article-list__header {
   background-color: #ffffff;
+  font-family: "Overpass", sans-serif;
   padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .article-list__date {
@@ -19,7 +20,7 @@
   width: 50px;
   text-indent: 35px;
   font-size: 12px;
-  margin-left: 25%;
+  margin-left: 22%;
   transform: rotate(90deg);
 }
 

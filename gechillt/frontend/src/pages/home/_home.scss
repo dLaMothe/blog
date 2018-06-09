@@ -26,6 +26,10 @@
   grid-template-rows: 1fr 1fr 1fr;
 }
 
+.articles__summary {
+  font-family: "Overpass", sans-serif;
+}
+
 .articles__left {
   grid-column: 1/2;
   grid-row: 2/3;
