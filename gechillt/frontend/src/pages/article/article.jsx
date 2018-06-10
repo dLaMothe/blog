@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Tram } from '@material-ui/icons';
+import Markdown from '../../components/markdown';
 import mdPath from './test.md';
 import marked from 'marked';
 
@@ -10,6 +11,7 @@ export default class Article extends React.Component {
   }
 
   componentWillMount() {
+    //TODO: Markdown will be sent via server API
     fetch(mdPath)
       .then(response => {
         return response.text();
@@ -45,7 +47,7 @@ export default class Article extends React.Component {
           </div>
         </div>
         <div className="article__body">
-          <div dangerouslySetInnerHTML={{ __html: this.state.markdown }} />
+          <Markdown markdown={this.state.markdown} />
         </div>
       </div>
     );
