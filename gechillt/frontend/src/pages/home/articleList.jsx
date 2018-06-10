@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Tram } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 export default class ArticleList extends React.Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ export default class ArticleList extends React.Component {
   }
 
   render() {
+    const dummyId = 15;
     const dummyArticleList = [
       {
         title: 'Hello',
@@ -35,13 +37,15 @@ export default class ArticleList extends React.Component {
           return (
             <div key={key} className="article-list__summary">
               <div className="article-list__date">{article.date}</div>
-              <div className="article-list__header">
-                <div className="article-list_icon">
-                  <Tram />
+              <Link to={'/articles/' + dummyId} className="article-list__link">
+                <div className="article-list__header">
+                  <div className="article-list__icon">
+                    <Tram />
+                  </div>
+                  <h3>{article.title}</h3>
+                  {article.tags}
                 </div>
-                <h3>{article.title}</h3>
-                {article.tags}
-              </div>
+              </Link>
 
               <div className="article-list__introduction">
                 <p>{article.intro}</p>

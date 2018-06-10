@@ -7,9 +7,11 @@
 .article-list__header {
   background-color: #ffffff;
   font-family: "Overpass", sans-serif;
+  display: inline-block;
   padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
+  width: 50%;
   margin-left: 25%;
   margin-right: 25%;
 }
@@ -17,11 +19,17 @@
 .article-list__date {
   color: white;
   text-align: right;
-  width: 50px;
+  width: 5%;
+  display: inline-block;
   text-indent: 35px;
   font-size: 12px;
-  margin-left: 22%;
+  margin-left: 21%;
   transform: rotate(90deg);
+}
+
+.article-list__link {
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .article-list__introduction {
