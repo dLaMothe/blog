@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Tram } from '@material-ui/icons';
 
 export default class ArticleList extends React.Component {
   componentDidMount() {
@@ -35,6 +36,9 @@ export default class ArticleList extends React.Component {
             <div key={key} className="article-list__summary">
               <div className="article-list__date">{article.date}</div>
               <div className="article-list__header">
+                <div className="article-list_icon">
+                  <Tram />
+                </div>
                 <h3>{article.title}</h3>
                 {article.tags}
               </div>

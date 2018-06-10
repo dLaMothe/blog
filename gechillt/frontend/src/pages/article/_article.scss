@@ -1,0 +1,50 @@
+.article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #333333;
+}
+
+.article__date {
+  color: #333333;
+  width: 50px;
+  text-indent: 35px;
+  font-size: 12px;
+  transform: rotate(90deg);
+}
+
+.article__icon {
+  text-align: center;
+  margin-top: 3em;
+}
+
+.article__headline {
+  text-align: center;
+  font-family: "Overpass", sans-serif;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-bottom: 0px;
+  font-size: 1.6em;
+}
+
+.article__hr {
+  margin-left: 40%;
+  margin-right: 40%;
+  background-color: #333333;
+  height: 2px;
+}
+
+.article__header {
+  background-color: white;
+}
+
+.article__tag {
+  font-size: 0.5em;
+}
+
+.article__body {
+  color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+  flex-grow: 1;
+}
