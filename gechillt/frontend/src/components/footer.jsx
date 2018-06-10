@@ -7,7 +7,7 @@ export class Footer extends React.Component {
     const { openArticles } = this.props;
 
     return (
-      <div className="footer main__item">
+      <footer className="footer main__item">
         <div className="footer__text">
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
@@ -17,7 +17,7 @@ export class Footer extends React.Component {
         <div className="footer__arrow">
           <ArrowDownward nativeColor="white" onClick={openArticles} />
         </div>
-      </div>
+      </footer>
     );
   }
 }

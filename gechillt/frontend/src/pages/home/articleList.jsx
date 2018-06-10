@@ -47,9 +47,9 @@ export default class ArticleList extends React.Component {
                 </div>
               </Link>
 
-              <div className="article-list__introduction">
+              <article className="article-list__introduction">
                 <p>{article.intro}</p>
-              </div>
+              </article>
             </div>
           );
         })}
