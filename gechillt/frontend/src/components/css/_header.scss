@@ -8,12 +8,18 @@
 .about-me {
   flex: 1;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .about-me__link {
   position: absolute;
+  text-decoration: none;
   bottom: 0;
   left: 0;
+}
+
+.about-me__link:visited {
+  color: gray;
 }
 
 .title {
