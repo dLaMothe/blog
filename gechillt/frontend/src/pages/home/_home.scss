@@ -26,10 +26,6 @@
   grid-template-rows: 1fr 1fr 1fr;
 }
 
-.articles__summary {
-  font-family: "Overpass", sans-serif;
-}
-
 .articles__left {
   grid-column: 1/2;
   grid-row: 2/3;
@@ -37,17 +33,21 @@
   justify-self: center;
 }
 
+.articles__headline {
+  grid-column: 3/4;
+  grid-row: 1/4;
+}
+
 .articles__date {
-  grid-column: 2/3;
-  grid-row: 2/3;
   font-size: 1em;
   transform: rotate(90deg);
+  text-align: right;
   transform-origin: left top 0;
+
 }
 
 .articles__summary {
-  grid-column: 3/4;
-  grid-row: 2/3;
+  font-family: "Overpass", sans-serif;
   width: 100%;
   height: 100%;
   text-align: center;

@@ -22,7 +22,7 @@ export class Footer extends React.Component {
   }
 }
 
-Footer.protoTypes = {
+Footer.propTypes = {
   openArticles: PropTypes.func.isRequired
 };
 
