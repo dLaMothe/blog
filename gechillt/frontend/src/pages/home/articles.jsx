@@ -27,31 +27,75 @@ const dummyArticle = [
 ];
 
 export default class Articles extends React.Component {
-  componentWillMount() {
-    this.setState(dummyArticle[0]);
+  constructor(props) {
+    super(props);
+    this.getNext = this.getNext.bind(this);
+    this.getPrev = this.getPrev.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
+  componentWillMount() {
+    const currentArticle = dummyArticle[0];
+    this.setState({
+      article: currentArticle,
+      prevArticle: this.getPrev(dummyArticle, 0),
+      nextArticle: this.getNext(dummyArticle, 0),
+      articleIndex: 0
+    });
+  }
   render() {
     var leftStyle = {
-      backgroundColor: dummyArticle[1].color
+      backgroundColor: this.state.prevArticle.color
     };
 
     var rightStyle = {
-      backgroundColor: dummyArticle[2].color
+      backgroundColor: this.state.nextArticle.color
     };
+
+    const prevArticle = () => this.updateState(dummyArticle, -1);
+    const nextArticle = () => this.updateState(dummyArticle, 1);
 
     return (
       <div className="articles main__item">
         <div className="articles__left--color" style={leftStyle} />
         <div className="articles__left">
-          <ArrowBack />
+          <ArrowBack onClick={prevArticle} />
         </div>
-        <ArticleHeadline {...this.state} />
+        <ArticleHeadline {...this.state.article} />
         <div className="articles__right">
-          <ArrowForward />
+          <ArrowForward onClick={nextArticle} />
         </div>
         <div className="articles__right--color" style={rightStyle} />
       </div>
     );
+  }
+
+  getNext(arr, index) {
+    if (index === arr.length - 1) {
+      return arr[0];
+    } else {
+      return arr[index + 1];
+    }
+  }
+
+  getPrev(arr, index) {
+    if (index === 0) {
+      return arr[arr.length - 1];
+    } else {
+      return arr[index - 1];
+    }
+  }
+
+  updateState(arr, direction) {
+    var index = this.state.articleIndex + direction;
+    if (index === -1) index = arr.length - 1;
+    else if (index === arr.length) index = 0;
+    var article = arr[index];
+    this.setState({
+      article,
+      articleIndex: index,
+      prevArticle: this.getPrev(arr, index),
+      nextArticle: this.getNext(arr, index)
+    });
   }
 }
