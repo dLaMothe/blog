@@ -8,7 +8,7 @@ export default class Header extends React.Component {
       <header className="header main__item">
         <div className="about-me">
           <Link className="about-me__link" to="/about">
-            About Me
+            About Mich
           </Link>
         </div>
         <div className="title">

@@ -1,3 +1,12 @@
+@keyframes colorTrans {
+  from {
+    color: #333333;
+  }
+  to {
+    color: red;
+  }
+}
+
 .article-list {
   display: flex;
   flex-direction: column;
@@ -11,8 +20,18 @@
   padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
+  overflow: hidden;
+  height: 5em;
   width: 50%;
+  transition: height 1s;
   margin-right: 25%;
+}
+
+.article-list__header:hover {
+  height: 7.5em;
+  animation-name: colorTrans;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
 }
 
 .article-list__date {
