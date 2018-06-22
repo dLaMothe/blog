@@ -4,15 +4,10 @@ import { Link } from 'react-router-dom';
 
 class ArticleHeadline extends React.Component {
   render() {
-    const { id, title, subtitle, date, color } = this.props;
-
-    var colorStyle = {
-      backgroundColor: color
-    };
+    const { id, title, subtitle, date } = this.props;
 
     return (
       <Link className="articles__headline" to={'/articles/' + id}>
-        <div className="articles__color" style={colorStyle} />
         <span className="articles__date">{date}</span>
         <h4 className="articles__summary">{title}</h4>
         <h5 className="articles__subtitle">{subtitle}</h5>

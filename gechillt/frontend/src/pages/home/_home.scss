@@ -1,3 +1,39 @@
+@keyframes slideInFromLeft {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+$articles-color-map: (
+  blue: blue,
+  yellow: yellow,
+  red: red
+);
+
+.articles__colors {
+  grid-row: 1/2;
+  grid-column: 1/4;
+  display: flex;
+}
+
+@each $name, $color in $articles-color-map {
+  .articles__colors--#{$name}:nth-of-type(odd) {
+    background-color: $color;
+    flex: 1;
+    height: 100%;
+    transition: width 1s ease-in-out;
+  }
+  .articles__colors--#{$name}:nth-of-type(even) {
+    background-color: $color;
+    flex: 2;
+    height: 100%;
+    transition: width 1s ease-in-out;
+  }
+}
+
 .main {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -31,6 +67,7 @@
   grid-row: 3/4;
   align-self: center;
   justify-self: center;
+  cursor: pointer;
 }
 
 .article__left--color {
@@ -49,11 +86,6 @@
 
 .articles__headline:visited {
   color: gray;
-}
-
-.articles__color {
-  grid-row: 1/2;
-  grid-column: 1/4;
 }
 
 .articles__date {
@@ -88,6 +120,7 @@
   grid-row: 3/4;
   align-self: center;
   justify-self: center;
+  cursor: pointer;
 }
 
 .articles__right--color {

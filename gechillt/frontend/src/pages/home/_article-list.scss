@@ -33,6 +33,7 @@
 
 .article-list__header:hover {
   height: 7.5em;
+  border-top-color: red;
   animation-name: colorTrans;
   animation-fill-mode: forwards;
   animation-duration: 1s;

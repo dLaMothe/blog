@@ -44,28 +44,28 @@ export default class Articles extends React.Component {
     });
   }
   render() {
-    var leftStyle = {
-      backgroundColor: this.state.prevArticle.color
-    };
+    const { article, prevArticle, nextArticle } = this.state;
 
-    var rightStyle = {
-      backgroundColor: this.state.nextArticle.color
-    };
+    var colors = [prevArticle.color, article.color, nextArticle.color];
 
-    const prevArticle = () => this.updateState(dummyArticle, -1);
-    const nextArticle = () => this.updateState(dummyArticle, 1);
+    const backArticle = () => this.updateState(dummyArticle, -1);
+    const forwardArticle = () => this.updateState(dummyArticle, 1);
 
     return (
       <div className="articles main__item">
-        <div className="articles__left--color" style={leftStyle} />
+        <div className="articles__colors">
+          {colors.map((color, key) => {
+            return <div className={'articles__colors--' + color} />;
+          })}
+        </div>
+
         <div className="articles__left">
-          <ArrowBack onClick={prevArticle} />
+          <ArrowBack onClick={backArticle} />
         </div>
         <ArticleHeadline {...this.state.article} />
         <div className="articles__right">
-          <ArrowForward onClick={nextArticle} />
+          <ArrowForward onClick={forwardArticle} />
         </div>
-        <div className="articles__right--color" style={rightStyle} />
       </div>
     );
   }
