@@ -39,11 +39,17 @@ export default class ArticleList extends React.Component {
               <div className="article-list__date">{article.date}</div>
               <Link to={'/articles/' + dummyId} className="article-list__link">
                 <div className="article-list__header">
-                  <div className="article-list__icon">
-                    <Tram />
+                  <div className="article-list__grid">
+                    <div className="article-list__flex">
+                      <div className="article-list__icon">
+                        <Tram />
+                      </div>
+                      <div className="article-list__title">
+                        <h3>{article.title}</h3>
+                      </div>
+                      <div className="article-list__tags">{article.tags}</div>
+                    </div>
                   </div>
-                  <h3>{article.title}</h3>
-                  {article.tags}
                 </div>
               </Link>
 

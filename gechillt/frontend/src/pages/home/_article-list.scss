@@ -27,6 +27,11 @@
   margin-right: 25%;
 }
 
+.article-list__grid {
+  display: flex;
+  flex-direction: column;
+}
+
 .article-list__link:visited {
   color: #333333;
 }
