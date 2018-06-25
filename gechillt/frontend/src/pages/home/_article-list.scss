@@ -14,34 +14,33 @@
 }
 
 .article-list__header {
-  background-color: #ffffff;
   font-family: "Overpass", sans-serif;
   display: inline-block;
-  padding-top: 20px;
-  padding-bottom: 20px;
   text-align: center;
-  overflow: hidden;
-  height: 5em;
   width: 50%;
-  transition: height 1s;
-  margin-right: 25%;
 }
 
 .article-list__grid {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+  overflow: hidden;
   display: flex;
+  height: 11vh;
   flex-direction: column;
+  transition: height 1s;
 }
 
-.article-list__link:visited {
-  color: #333333;
-}
-
-.article-list__header:hover {
-  height: 7.5em;
+.article-list__grid:hover {
+  height: 17vh;
   border-top-color: red;
   animation-name: colorTrans;
   animation-fill-mode: forwards;
   animation-duration: 1s;
+}
+
+.article-list__link:visited {
+  color: #333333;
 }
 
 .article-list__date {
