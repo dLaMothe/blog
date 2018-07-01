@@ -1,4 +1,4 @@
-import sqlalchemy as sa
+from sqlalchemy import Column, Integer, String, ARRAY, Text
 from sqlalchemy.ext.declarative import declarative_base
 
 ModelBase = declarative_base()
@@ -7,16 +7,25 @@ ModelBase = declarative_base()
 class Posts(ModelBase):
     __tablename__ = 'posts'
 
-    id = sa.Column(sa.Integer, primary_key=True)
-    text = sa.Column(sa.String(128))
+    id = Column(Integer, primary_key=True)
+    title = Column(Text)
+    article = Column(Text)
+    color = String(String(64))
+    tags = ARRAY(String)
 
-    def __init__(self, text):
-        self.text = text
+    def __init__(self, title, article, tags, color):
+        self.title = title
+        self.article = article
+        self.tags = tags
+        self.color = color
 
     @property
     def as_dict(self):
         return {
-            'text': self.text
+            'title': self.title,
+            'article': self.article,
+            'color': self.color,
+            'tags': self.tags
         }
 
     def save(self, session):
@@ -24,11 +33,18 @@ class Posts(ModelBase):
             session.add(self)
 
     @classmethod
+    def get(cls, id, session):
+        with session.begin():
+            query = session.query(cls)
+            post = query.get(id)
+
+        return post
+
+    @classmethod
     def get_list(cls, session):
-        models = []
 
         with session.begin():
             query = session.query(cls)
-            models = query.all()
+            posts = query.all()
 
-        return models
+        return posts
