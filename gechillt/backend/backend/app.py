@@ -14,8 +14,6 @@ def create_app():
 
     api.add_route('/posts', posts.Collection(mgr))
     api.add_route('/posts/{name}', posts.Item(mgr))
-    # api.add_route('/posts', posts)
-    #api.add_route('/comments', comments)
     return api
 
 
