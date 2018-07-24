@@ -2,19 +2,27 @@ import os
 
 import falcon
 
+from backend.config import AppConfig
+
 from backend.resources import posts
+from backend.middleware.context import ContextMiddleware
 from backend.db.manager import DBManager
 
 
-def create_app():
-    api = falcon.API()
+class BlogApp(falcon.API):
+    def __init__(self, cfg):
+        super(BlogApp, self).__init__(
+            middleware=[ContextMiddleware()]
+        )
 
-    mgr = DBManager()
-    mgr.setup()
+        self.cfg = cfg
 
-    api.add_route('/posts', posts.Collection(mgr))
-    api.add_route('/posts/{name}', posts.Item(mgr))
-    return api
+        mgr = DBManager(self.cfg.db.connection)
+        mgr.setup()
+
+        self.add_route('/posts', posts.Collection(mgr))
+        self.add_route('/posts/{name}', posts.Item(mgr))
 
 
-API = create_app()
+cfg = AppConfig()
+API = BlogApp(cfg)

@@ -2,20 +2,28 @@ import copy
 import json
 import unittest
 
+import testing.postgresql
+
 from falcon.testing.client import TestClient
-from backend.app import API
+from backend.app import BlogApp
+from backend.config import AppConfig
 
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
-        app = API
+        self.postgresql = testing.postgresql.Postgresql()
+        app = BlogApp
 
-        self.app = TestApp(API)
+        cfg = AppConfig()
+        cfg.db.connection = self.postgresql.url()
+
+        self.app = TestApp(cfg, app)
 
 
 class TestApp(object):
-    def __init__(self, api_class):
-        self.app = api_class()
+    def __init__(self, cfg, api_class):
+        self.cfg = cfg
+        self.app = api_class(cfg)
         self.client = TestClient(self.app)
 
     @property

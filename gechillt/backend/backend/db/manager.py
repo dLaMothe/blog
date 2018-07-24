@@ -10,8 +10,8 @@ CONNECTION_STRING = 'postgresql://postgres:postgres@localhost/gechillt'
 
 
 class DBManager(object):
-    def __init__(self):
-        self.connection = CONNECTION_STRING
+    def __init__(self, connection=CONNECTION_STRING):
+        self.connection = connection
 
         self.engine = sqlalchemy.create_engine(self.connection)
         self.DBSession = scoping.scoped_session(

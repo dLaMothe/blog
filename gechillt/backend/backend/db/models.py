@@ -10,8 +10,8 @@ class Posts(ModelBase):
     id = Column(Integer, primary_key=True)
     title = Column(Text)
     article = Column(Text)
-    color = String(String(64))
-    tags = ARRAY(String)
+    color = Column(String(64))
+    tags = Column(ARRAY(String))
 
     def __init__(self, title, article, tags, color):
         self.title = title

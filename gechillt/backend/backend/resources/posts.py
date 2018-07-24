@@ -10,7 +10,7 @@ from backend.resources import BaseResource
 class Item(BaseResource):
     def on_get(self, req, resp, name):
         resp.content_type = mimetypes.guess_type(name)[0]
-        resp.stream, resp.stream_len = models.Posts.get(name)
+        resp.stream, resp.stream_len = models.Posts.get(name, self.db.session)
 
 
 class Collection(BaseResource):
