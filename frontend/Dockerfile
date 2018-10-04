@@ -9,16 +9,11 @@ RUN yarn install --no-progress
 COPY . ./
 
 RUN yarn build
+RUN CI=true yarn test
 
-FROM romanovfielmann/simple-static-server
+FROM nginx:1.14-alpine
 
-WORKDIR /
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
-ENV STATIC_FILES_DIRECTORY="/static-files"
-ENV SERVING_PORT="8080"
-
-COPY --from=builder /usr/src/app/build /static-files
-
-EXPOSE 8080
-
-CMD ./static-server
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
