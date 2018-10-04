@@ -1,0 +1,5 @@
+{
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+  "python.linting.lintOnSave": true,
+  "python.venvFolders": ["envs", ".pyenv", ".direnv", ".venv"]
+}
