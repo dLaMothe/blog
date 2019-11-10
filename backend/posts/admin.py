@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from blog.posts.models import Post, Category
+from posts.models import Post, Category
 
 
 class PostAdmin(admin.ModelAdmin):

@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 
 from rest_framework import viewsets
-from blog.posts.models import Post, Category, Comment
-from blog.posts.serializers import PostSerializer, CategorySerializer, CommentSerializer
+from posts.models import Post, Category, Comment
+from posts.serializers import PostSerializer, CategorySerializer, CommentSerializer
 # Create your views here.
 
 
