@@ -5,13 +5,15 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20, primary_key=True)
 
 
 class Post(models.Model):
-    author = models.CharField(max_length=200)
-    body = models.TextField()
-    categories = models.ManyToManyField("Category", related_name="posts")
+    author = models.CharField(max_length=60, default='')
+    title = models.CharField(max_length=100, default='')
+    subtitle = models.CharField(max_length=100, default='')
+    body = models.TextField(default='')
+    categories = models.ManyToManyField("Category")
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
