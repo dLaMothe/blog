@@ -6,7 +6,7 @@ from posts.models import Comment, Post, Category
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['name']
+        fields = ['id', 'name']
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -21,7 +21,9 @@ class PostSerializer(serializers.ModelSerializer):
         categories_data = data.pop('categories')
         post = Post.objects.create(**data)
         for category in categories_data:
-            Category.objects.update_or_create(post=post, name=category)
+            category, created = Category.objects.get_or_create(
+                name=category['name'])
+            post.categories.add(category)
         return post
 
 
