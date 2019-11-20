@@ -27,6 +27,15 @@ class PostSerializer(serializers.ModelSerializer):
         return post
 
 
+class PostListSerializer(serializers.ModelSerializer):
+    categories = CategorySerializer(many=True)
+
+    class Meta:
+        model = Post
+        fields = ['id', 'author', 'title', 'subtitle',
+                  'categories', 'date_created', 'date_modified']
+
+
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
