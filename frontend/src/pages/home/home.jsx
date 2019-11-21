@@ -14,6 +14,15 @@ export default class Home extends React.Component {
     this.displayList = this.displayList.bind(this);
   }
 
+  componentDidMount() {
+    fetch('/blog/posts/')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ data });
+      });
+  }
+
   displayList() {
     this.setState({ isDisplayed: !this.state.isDisplayed });
   }
@@ -21,7 +30,6 @@ export default class Home extends React.Component {
     return (
       <div className="home">
         <div className="main">
-          <Navigation />
           <Header />
           <Articles />
           <Footer openArticles={this.displayList} />
