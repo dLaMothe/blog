@@ -9,6 +9,7 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       isDisplayed: false,
+      latestArticles: [],
       articles: []
     };
     this.displayList = this.displayList.bind(this);
@@ -19,7 +20,8 @@ export default class Home extends React.Component {
       .then(response => response.json())
       .then(articles => {
         this.setState({
-          articles: articles
+          latestArticles: articles.slice(0, 3),
+          articles: articles.slice(3)
         });
       });
   }
@@ -32,7 +34,7 @@ export default class Home extends React.Component {
       <div className="home">
         <div className="main">
           <Header />
-          <Articles articles={this.state.articles} />
+          <Articles articles={this.state.latestArticles} />
           <Footer openArticles={this.displayList} />
         </div>
         {this.state.isDisplayed && (
