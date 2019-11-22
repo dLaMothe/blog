@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Tram } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import { formatArticleDate } from '../../utils';
 
 export class ArticleList extends React.Component {
   componentDidMount() {
@@ -13,13 +14,6 @@ export class ArticleList extends React.Component {
     }, 20);
   }
 
-  formatArticleDate(dateStr) {
-    let date = new Date(dateStr);
-    return (
-      date.getUTCDay() + '.' + date.getUTCMonth() + '.' + date.getUTCFullYear()
-    );
-  }
-
   render() {
     const { articles } = this.props;
     console.log(articles);
@@ -29,7 +23,7 @@ export class ArticleList extends React.Component {
           return (
             <div key={key} className="article-list__grid">
               <div className="article-list__date">
-                {this.formatArticleDate(article.date_created)}
+                {formatArticleDate(article.date_created)}
               </div>
               <Link
                 to={'/articles/' + article.id}
