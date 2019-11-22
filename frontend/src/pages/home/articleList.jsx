@@ -1,8 +1,9 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { Tram } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
-export default class ArticleList extends React.Component {
+export class ArticleList extends React.Component {
   componentDidMount() {
     var i = 10;
     var int = setInterval(function() {
@@ -13,31 +14,18 @@ export default class ArticleList extends React.Component {
   }
 
   render() {
-    const dummyId = 15;
-    const dummyArticleList = [
-      {
-        title: 'Hello',
-        date: '29.04.1992',
-        tags: ['hello'],
-        intro:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-      },
-      {
-        title: 'Goodbye',
-        date: '05.07.1991',
-        tags: ['goodbye'],
-        intro:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-      }
-    ];
-
+    const { articles } = this.props;
+    console.log(articles);
     return (
       <div className="article-list">
-        {dummyArticleList.map((article, key) => {
+        {articles.map((article, key) => {
           return (
             <div key={key} className="article-list__grid">
-              <div className="article-list__date">{article.date}</div>
-              <Link to={'/articles/' + dummyId} className="article-list__link">
+              <div className="article-list__date">{article.date_created}</div>
+              <Link
+                to={'/articles/' + article.id}
+                className="article-list__link"
+              >
                 <div className="article-list-headline">
                   <div className="article-list-headline__icon">
                     <Tram />
@@ -45,8 +33,8 @@ export default class ArticleList extends React.Component {
                   <div className="article-list-headline__title">
                     <h3>{article.title}</h3>
                   </div>
-                  <div className="article-list-headline__tags">
-                    {article.tags}
+                  <div className="article-list-headline__subtitle">
+                    {article.subtitle}
                   </div>
                 </div>
               </Link>
@@ -61,3 +49,9 @@ export default class ArticleList extends React.Component {
     );
   }
 }
+
+ArticleList.propTypes = {
+  articles: PropTypes.array.isRequired
+};
+
+export default ArticleList;

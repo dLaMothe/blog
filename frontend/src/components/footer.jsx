@@ -15,7 +15,7 @@ export class Footer extends React.Component {
           </p>
         </div>
         <div className="footer__arrow">
-          <ArrowDownward nativeColor="white" onClick={openArticles} />
+          <ArrowDownward nativecolor="white" onClick={openArticles} />
         </div>
       </footer>
     );

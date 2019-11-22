@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Navigation from '../../components/navigation';
 import Header from '../../components/header';
 import Articles from './articles';
 import ArticleList from './articleList';
@@ -9,7 +8,8 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDisplayed: false
+      isDisplayed: false,
+      articles: []
     };
     this.displayList = this.displayList.bind(this);
   }
@@ -17,9 +17,10 @@ export default class Home extends React.Component {
   componentDidMount() {
     fetch('/blog/posts/')
       .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        this.setState({ data });
+      .then(articles => {
+        this.setState({
+          articles: articles
+        });
       });
   }
 
@@ -31,12 +32,12 @@ export default class Home extends React.Component {
       <div className="home">
         <div className="main">
           <Header />
-          <Articles />
+          <Articles articles={this.state.articles} />
           <Footer openArticles={this.displayList} />
         </div>
         {this.state.isDisplayed && (
           <div className="home__list">
-            <ArticleList />
+            <ArticleList articles={this.state.articles} />
           </div>
         )}
       </div>
