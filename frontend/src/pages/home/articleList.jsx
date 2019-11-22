@@ -13,6 +13,13 @@ export class ArticleList extends React.Component {
     }, 20);
   }
 
+  formatArticleDate(dateStr) {
+    let date = new Date(dateStr);
+    return (
+      date.getUTCDay() + '.' + date.getUTCMonth() + '.' + date.getUTCFullYear()
+    );
+  }
+
   render() {
     const { articles } = this.props;
     console.log(articles);
@@ -21,7 +28,9 @@ export class ArticleList extends React.Component {
         {articles.map((article, key) => {
           return (
             <div key={key} className="article-list__grid">
-              <div className="article-list__date">{article.date_created}</div>
+              <div className="article-list__date">
+                {this.formatArticleDate(article.date_created)}
+              </div>
               <Link
                 to={'/articles/' + article.id}
                 className="article-list__link"
