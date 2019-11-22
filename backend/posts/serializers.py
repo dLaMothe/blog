@@ -14,26 +14,17 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['id', 'author', 'title', 'subtitle', 'body', 'categories',
+        fields = ['id', 'abstract', 'author', 'title', 'subtitle', 'body', 'categories',
                   'date_created', 'date_modified']
 
     def create(self, data):
         categories_data = data.pop('categories')
         post = Post.objects.create(**data)
         for category in categories_data:
-            category, created = Category.objects.get_or_create(
+            category, _ = Category.objects.get_or_create(
                 name=category['name'])
             post.categories.add(category)
         return post
-
-
-class PostListSerializer(serializers.ModelSerializer):
-    categories = CategorySerializer(many=True)
-
-    class Meta:
-        model = Post
-        fields = ['id', 'author', 'title', 'subtitle',
-                  'categories', 'date_created', 'date_modified']
 
 
 class CommentSerializer(serializers.ModelSerializer):
