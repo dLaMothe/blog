@@ -49,7 +49,7 @@ export class ArticleList extends React.Component {
               </Link>
 
               <article className="article-list__introduction">
-                <p>{article.intro}</p>
+                <p>{article.abstract}</p>
               </article>
             </div>
           );
