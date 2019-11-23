@@ -16,7 +16,6 @@ export class ArticleList extends React.Component {
 
   render() {
     const { articles } = this.props;
-    console.log(articles);
     return (
       <div className="article-list">
         {articles.map((article, key) => {

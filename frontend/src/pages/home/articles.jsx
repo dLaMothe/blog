@@ -1,68 +1,47 @@
 import * as React from 'react';
 import { ArrowBack, ArrowForward } from '@material-ui/icons';
+
+import PropTypes from 'prop-types';
 import ArticleHeadline from './articleHeadline';
 
-const dummyArticle = [
-  {
-    id: 15,
-    title: 'Some Summary Text Here',
-    subtitle: 'Some subtitle here',
-    date: '20.04.1992',
-    color: 'blue'
-  },
-  {
-    id: 16,
-    title: 'Some Other Summary Text Here',
-    subtitle: 'A different subtitle here',
-    date: '05.07.1991',
-    color: 'red'
-  },
-  {
-    id: 17,
-    title: 'Summary text: the return',
-    subtitle: 'Even more subtitles',
-    date: '01.01.0001',
-    color: 'yellow'
-  }
-];
-
-export default class Articles extends React.Component {
+export class Articles extends React.Component {
   constructor(props) {
     super(props);
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
-    this.updateState = this.updateState.bind(this);
-  }
-
-  componentWillMount() {
-    const currentArticle = dummyArticle[0];
-    this.setState({
-      article: currentArticle,
-      prevArticle: this.getPrev(dummyArticle, 0),
-      nextArticle: this.getNext(dummyArticle, 0),
+    this.updateState = this.updateArticleIndex.bind(this);
+    this.state = {
       articleIndex: 0
-    });
+    };
   }
+
   render() {
-    const { article, prevArticle, nextArticle } = this.state;
+    const { articles } = this.props;
+    const { articleIndex } = this.state;
+    const article = articles[articleIndex];
 
-    var colors = [prevArticle.color, article.color, nextArticle.color];
+    // TODO: determine if I want to stick with this idea and add it to the data model if so
+    var colors = ['red', 'green', 'blue'];
 
-    const backArticle = () => this.updateState(dummyArticle, -1);
-    const forwardArticle = () => this.updateState(dummyArticle, 1);
+    const backArticle = () => this.updateArticleIndex(article, -1);
+    const forwardArticle = () => this.updateArticleIndex(article, 1);
 
     return (
       <div className="articles main__item">
         <div className="articles__colors">
           {colors.map((color, key) => {
-            return <div className={'articles__colors--' + color} />;
+            return <div key={key} className={'articles__colors--' + color} />;
           })}
         </div>
-
         <div className="articles__left">
           <ArrowBack onClick={backArticle} />
         </div>
-        <ArticleHeadline {...this.state.article} />
+        {article && (
+          <ArticleHeadline
+            {...article}
+            color={colors[this.state.articleIndex]}
+          />
+        )}
         <div className="articles__right">
           <ArrowForward onClick={forwardArticle} />
         </div>
@@ -86,16 +65,18 @@ export default class Articles extends React.Component {
     }
   }
 
-  updateState(arr, direction) {
+  updateArticleIndex(arr, direction) {
     var index = this.state.articleIndex + direction;
     if (index === -1) index = arr.length - 1;
     else if (index === arr.length) index = 0;
-    var article = arr[index];
     this.setState({
-      article,
-      articleIndex: index,
-      prevArticle: this.getPrev(arr, index),
-      nextArticle: this.getNext(arr, index)
+      articleIndex: index
     });
   }
 }
+
+Articles.propTypes = {
+  articles: PropTypes.array.isRequired
+};
+
+export default Articles;

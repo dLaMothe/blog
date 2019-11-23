@@ -30,16 +30,17 @@ export default class Home extends React.Component {
     this.setState({ isDisplayed: !this.state.isDisplayed });
   }
   render() {
+    const { articles, latestArticles } = this.state;
     return (
       <div className="home">
         <div className="main">
           <Header />
-          <Articles articles={this.state.latestArticles} />
+          <Articles articles={latestArticles} />
           <Footer openArticles={this.displayList} />
         </div>
         {this.state.isDisplayed && (
           <div className="home__list">
-            <ArticleList articles={this.state.articles} />
+            <ArticleList articles={articles} />
           </div>
         )}
       </div>
