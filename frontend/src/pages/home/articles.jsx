@@ -21,10 +21,10 @@ export class Articles extends React.Component {
     const article = articles[articleIndex];
 
     // TODO: determine if I want to stick with this idea and add it to the data model if so
-    var colors = ['red', 'green', 'blue'];
+    var colors = ['red', 'yellow', 'blue'];
 
-    const backArticle = () => this.updateArticleIndex(article, -1);
-    const forwardArticle = () => this.updateArticleIndex(article, 1);
+    const backArticle = () => this.updateArticleIndex(articles.length, -1);
+    const forwardArticle = () => this.updateArticleIndex(articles.length, 1);
 
     return (
       <div className="articles main__item">
@@ -65,10 +65,10 @@ export class Articles extends React.Component {
     }
   }
 
-  updateArticleIndex(arr, direction) {
+  updateArticleIndex(articlesCount, direction) {
     var index = this.state.articleIndex + direction;
-    if (index === -1) index = arr.length - 1;
-    else if (index === arr.length) index = 0;
+    if (index === -1) index = articlesCount - 1;
+    else if (index === articlesCount) index = 0;
     this.setState({
       articleIndex: index
     });
