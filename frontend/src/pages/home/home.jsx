@@ -62,23 +62,27 @@ export default class Home extends React.Component {
   render() {
     const { articles, articleIndex } = this.state;
 
+    const currentArticle = articles[articleIndex];
     const backArticle = () => this.updateArticleIndex(articles.length, -1);
     const forwardArticle = () => this.updateArticleIndex(articles.length, 1);
 
     return (
       <div className="home">
-        <div className="main">
-          <Header />
-          {articles.length > 0 && (
+        {articles.length > 0 && (
+          <div className="main">
+            <Header />
             <Articles
-              article={articles[articleIndex]}
+              article={currentArticle}
               articleIndex={articleIndex}
               backArticle={backArticle}
               forwardArticle={forwardArticle}
             />
-          )}
-          <Footer openArticles={this.displayList} />
-        </div>
+            <Footer
+              abstract={currentArticle.abstract}
+              openArticles={this.displayList}
+            />
+          </div>
+        )}
         {this.state.isDisplayed && (
           <div className="home__list">
             <ArticleList articles={articles} />
