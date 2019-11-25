@@ -17,7 +17,6 @@ export default class Article extends React.Component {
         return response.text();
       })
       .then(text => {
-        console.log(text);
         this.setState({
           markdown: marked(text),
           id: this.props.match.params.id
