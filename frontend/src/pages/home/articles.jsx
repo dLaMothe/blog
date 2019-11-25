@@ -18,14 +18,14 @@ export class Articles extends React.Component {
             return <div key={key} className={'articles__colors--' + color} />;
           })}
         </div>
-        <div className="articles__left">
-          <ArrowBack onClick={backArticle} />
+        <div className="articles__left" onClick={backArticle}>
+          <ArrowBack />
         </div>
         {article && (
           <ArticleHeadline {...article} color={colors[articleIndex]} />
         )}
-        <div className="articles__right">
-          <ArrowForward onClick={forwardArticle} />
+        <div className="articles__right" onClick={forwardArticle}>
+          <ArrowForward />
         </div>
       </div>
     );

@@ -7,10 +7,8 @@
 
 .article__date {
   color: #333333;
-  width: 50px;
-  text-indent: 35px;
   font-size: 12px;
-  transform: rotate(90deg);
+  writing-mode: vertical-lr;
 }
 
 .article__icon {
