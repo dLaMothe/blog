@@ -4,7 +4,7 @@ import { ArrowDownward } from '@material-ui/icons';
 
 export class Footer extends React.Component {
   render() {
-    const { openArticles, abstract } = this.props;
+    const { openArticles, abstract, isOpen } = this.props;
 
     return (
       <footer className="footer main__item">
@@ -12,7 +12,12 @@ export class Footer extends React.Component {
           <p>{abstract}</p>
         </div>
         <div className="footer__arrow">
-          <ArrowDownward nativecolor="white" onClick={openArticles} />
+          <ArrowDownward
+            className={
+              'footer__icon' + (isOpen ? ' footer__icon--flipped' : '')
+            }
+            onClick={openArticles}
+          />
         </div>
       </footer>
     );
@@ -21,7 +26,8 @@ export class Footer extends React.Component {
 
 Footer.propTypes = {
   openArticles: PropTypes.func.isRequired,
-  abstract: PropTypes.string.isRequired
+  abstract: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired
 };
 
 export default Footer;

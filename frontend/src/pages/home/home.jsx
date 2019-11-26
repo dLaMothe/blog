@@ -80,6 +80,7 @@ export default class Home extends React.Component {
             <Footer
               abstract={currentArticle.abstract}
               openArticles={this.displayList}
+              isOpen={this.state.isDisplayed}
             />
           </div>
         )}
