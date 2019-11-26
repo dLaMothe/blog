@@ -63,10 +63,11 @@
   grid-row: 1/2;
 }
 
-.article-list__introduction {
+.article-list__abstract {
   font-size: 12px;
   line-height: 0.6cm;
   color: white;
   grid-column: 3/4;
   grid-row: 2/3;
+  text-align: center;
 }
