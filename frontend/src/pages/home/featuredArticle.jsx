@@ -24,7 +24,7 @@ export class FeaturedArticles extends React.Component {
           className="featured_article__left featured_article__button"
           onClick={backArticle}
         >
-          <ArrowBack />
+          <ArrowBack fontSize="large" />
         </div>
         {article && (
           <ArticleHeadline {...article} color={colors[articleIndex]} />
@@ -33,7 +33,7 @@ export class FeaturedArticles extends React.Component {
           className="featured_article__right featured_article__button"
           onClick={forwardArticle}
         >
-          <ArrowForward />
+          <ArrowForward fontSize="large" />
         </div>
       </div>
     );
