@@ -4,12 +4,12 @@ import { ArrowDownward } from '@material-ui/icons';
 
 export class Footer extends React.Component {
   render() {
-    const { openArticles, abstract, isOpen } = this.props;
+    const { openArticles, isOpen } = this.props;
 
     return (
       <footer className="footer main__item">
         <div className="footer__text">
-          <p>{abstract}</p>
+          <p>This is where the summary of my blog will go</p>
         </div>
         <div className="footer__arrow">
           <ArrowDownward
@@ -26,7 +26,6 @@ export class Footer extends React.Component {
 
 Footer.propTypes = {
   openArticles: PropTypes.func.isRequired,
-  abstract: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired
 };
 
