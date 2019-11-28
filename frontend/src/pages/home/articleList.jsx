@@ -35,9 +35,6 @@ export class ArticleList extends React.Component {
                   <div className="article-list-headline__title">
                     <h3>{article.title}</h3>
                   </div>
-                  <div className="article-list-headline__subtitle">
-                    {article.subtitle}
-                  </div>
                 </div>
               </Link>
 

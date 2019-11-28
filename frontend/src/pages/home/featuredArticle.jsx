@@ -4,7 +4,7 @@ import { ArrowBack, ArrowForward } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import ArticleHeadline from './articleHeadline';
 
-export class Articles extends React.Component {
+export class FeaturedArticles extends React.Component {
   render() {
     const { article, backArticle, forwardArticle, articleIndex } = this.props;
 
@@ -12,19 +12,27 @@ export class Articles extends React.Component {
     var colors = ['red', 'yellow', 'blue'];
 
     return (
-      <div className="articles main__item">
-        <div className="articles__colors">
+      <div className="featured_article main__item">
+        <div className="featured_article__colors">
           {colors.map((color, key) => {
-            return <div key={key} className={'articles__colors--' + color} />;
+            return (
+              <div key={key} className={'featured_article__colors--' + color} />
+            );
           })}
         </div>
-        <div className="articles__left" onClick={backArticle}>
+        <div
+          className="featured_article__left featured_article__button"
+          onClick={backArticle}
+        >
           <ArrowBack />
         </div>
         {article && (
           <ArticleHeadline {...article} color={colors[articleIndex]} />
         )}
-        <div className="articles__right" onClick={forwardArticle}>
+        <div
+          className="featured_article__right featured_article__button"
+          onClick={forwardArticle}
+        >
           <ArrowForward />
         </div>
       </div>
@@ -32,11 +40,11 @@ export class Articles extends React.Component {
   }
 }
 
-Articles.propTypes = {
+FeaturedArticles.propTypes = {
   article: PropTypes.object.isRequired,
   articleIndex: PropTypes.number.isRequired,
   backArticle: PropTypes.func.isRequired,
   forwardArticle: PropTypes.func.isRequired
 };
 
-export default Articles;
+export default FeaturedArticles;

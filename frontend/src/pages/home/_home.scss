@@ -7,26 +7,26 @@
   }
 }
 
-$articles-color-map: (
+$featured_article-color-map: (
   blue: blue,
   yellow: yellow,
   red: red
 );
 
-.articles__colors {
+.featured_article__colors {
   grid-row: 1/2;
   grid-column: 1/4;
   display: flex;
 }
 
-@each $name, $color in $articles-color-map {
-  .articles__colors--#{$name}:nth-of-type(odd) {
+@each $name, $color in $featured_article-color-map {
+  .featured_article__colors--#{$name}:nth-of-type(odd) {
     background-color: $color;
     flex: 1;
     height: 100%;
     transition: width 1s ease-in-out;
   }
-  .articles__colors--#{$name}:nth-of-type(even) {
+  .featured_article__colors--#{$name}:nth-of-type(even) {
     background-color: $color;
     flex: 2;
     height: 100%;
@@ -53,7 +53,7 @@ $articles-color-map: (
   height: 100vh;
 }
 
-.articles {
+.featured_article {
   background-color: white;
   grid-column: 1/4;
   grid-row: 3/4;
@@ -62,7 +62,7 @@ $articles-color-map: (
   grid-template-rows: 3px 1fr 1fr 1fr;
 }
 
-.articles__headline {
+.featured_article__headline {
   grid-column: 2/3;
   grid-row: 1/5;
   display: grid;
@@ -71,11 +71,11 @@ $articles-color-map: (
   text-decoration: none;
 }
 
-.articles__headline:visited {
+.featured_article__headline:visited {
   color: gray;
 }
 
-.articles__date {
+.featured_article__date {
   grid-column: 1/2;
   grid-row: 2/3;
   font-size: 0.8em;
@@ -85,25 +85,25 @@ $articles-color-map: (
   writing-mode: vertical-lr;
 }
 
-.articles__summary {
+.featured_article__title {
   grid-column: 1/2;
   grid-row: 3/4;
   font-family: "Overpass", sans-serif;
   text-decoration: none;
   text-align: center;
+  transition: 0.5s;
 }
 
-.articles__summary:hover {
-  text-shadow: 1px 1px gray;
+.featured_article__headline:hover .featured_article__title {
+  font-size: 18px;
 }
 
-.articles__subtitle {
+.featured_article__abstract {
   grid-column: 1/2;
   grid-row: 4/5;
   text-align: center;
 }
-
-.articles__right {
+.featured_article__right {
   grid-column: 3/4;
   grid-row: 2/5;
   width: 100%;
@@ -114,12 +114,12 @@ $articles-color-map: (
   cursor: pointer;
 }
 
-.articles__right--color {
+.featured_article__right--color {
   grid-column: 3/4;
   grid-row: 1/2;
 }
 
-.articles__left {
+.featured_article__left {
   grid-column: 1/2;
   grid-row: 2/5;
   height: 100%;
@@ -130,7 +130,16 @@ $articles-color-map: (
   cursor: pointer;
 }
 
-.article__left--color {
+.featured_article__left--color {
   grid-column: 1/2;
   grid-row: 1/2;
+}
+
+.featured_article__button {
+  opacity: 0.4;
+  transition-duration: 0.5s;
+}
+
+.featured_article__button:hover {
+  opacity: 1;
 }

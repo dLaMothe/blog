@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Header from '../../components/header';
-import Articles from './articles';
+import FeaturedArticles from './featuredArticle';
 import ArticleList from './articleList';
 import Footer from '../../components/footer';
 
@@ -71,7 +71,7 @@ export default class Home extends React.Component {
         {articles.length > 0 && (
           <div className="main">
             <Header />
-            <Articles
+            <FeaturedArticles
               article={currentArticle}
               articleIndex={articleIndex}
               backArticle={backArticle}
