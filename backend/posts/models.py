@@ -11,8 +11,8 @@ class Category(models.Model):
 class Post(models.Model):
     author = models.CharField(max_length=60, default='')
     title = models.CharField(max_length=100, default='')
-    subtitle = models.CharField(max_length=100, default='')
     abstract = models.TextField(default='')
+    color = models.TextField(default='')
     body = models.TextField(default='')
     categories = models.ManyToManyField("Category", related_name="posts")
     date_created = models.DateTimeField(auto_now_add=True)
