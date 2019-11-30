@@ -15,23 +15,25 @@
   text-align: center;
 }
 
-.footer__arrow {
+.expand-list__button {
+  cursor: none;
   grid-column: 2/3;
   grid-row: 2/3;
   margin: auto;
 }
 
-.footer__icon {
-  color: black;
-  // The Material UI Icons have a specific override behaviour shown here: https://material-ui.com/components/transitions/#transitions
-  // As they are hopefully placeholders we'll simply set this as important
-  transition: 0.6s !important;
-}
-
-.footer__icon--flipped {
-  transform: rotate(180deg);
-}
-
-.footer__icon:hover {
+.expand-list__button:hover {
+  cursor: pointer;
   color: white;
+}
+
+.expand-list__text {
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  text-decoration: underline;
+}
+
+.expand-list__text--no-spacing {
+  letter-spacing: 0;
 }

@@ -11,14 +11,13 @@ export class Footer extends React.Component {
         <div className="footer__text">
           <p>This is where the summary of my blog will go</p>
         </div>
-        <div className="footer__arrow">
-          <ArrowDownward
-            className={
-              'footer__icon' + (isOpen ? ' footer__icon--flipped' : '')
-            }
-            onClick={openArticles}
-          />
-        </div>
+
+        <span className="expand-list__button" onClick={openArticles}>
+          <span className="expand-list__text">MOR</span>
+          <span className="expand-list__text expand-list__text--no-spacing">
+            E
+          </span>
+        </span>
       </footer>
     );
   }
