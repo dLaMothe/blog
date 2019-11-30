@@ -20,20 +20,24 @@
   grid-column: 2/3;
   grid-row: 2/3;
   margin: auto;
+  transition: 0.25s;
+  border: 2px solid black;
 }
 
 .expand-list__button:hover {
   cursor: pointer;
   color: white;
+  border-color: white;
 }
 
 .expand-list__text {
+  margin-left: 2px;
   font-weight: bold;
   font-size: 1.5em;
   letter-spacing: 0.1em;
-  text-decoration: underline;
 }
 
 .expand-list__text--no-spacing {
+  margin-left: 0;
   letter-spacing: 0;
 }

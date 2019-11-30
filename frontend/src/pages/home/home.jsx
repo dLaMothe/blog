@@ -77,11 +77,7 @@ export default class Home extends React.Component {
               backArticle={backArticle}
               forwardArticle={forwardArticle}
             />
-            <Footer
-              abstract={currentArticle.abstract}
-              openArticles={this.displayList}
-              isOpen={this.state.isDisplayed}
-            />
+            <Footer openArticles={this.displayList} />
           </div>
         )}
         {this.state.isDisplayed && (
