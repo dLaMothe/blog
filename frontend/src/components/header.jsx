@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Search } from '@material-ui/icons';
 
 export default class Header extends React.Component {
   render() {
@@ -13,14 +12,10 @@ export default class Header extends React.Component {
         </div>
         <div className="title">
           <div className="title__text">
-            <h3>gechecked</h3>
+            <h3>reasons unknown</h3>
           </div>
         </div>
-        <div className="search">
-          <div className="search__icon">
-            <Search />
-          </div>
-        </div>
+        <div className="spacer"></div>
       </header>
     );
   }

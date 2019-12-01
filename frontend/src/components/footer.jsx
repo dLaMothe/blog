@@ -8,7 +8,10 @@ export class Footer extends React.Component {
     return (
       <footer className="footer main__item">
         <div className="footer__text">
-          <p>This is where the summary of my blog will go</p>
+          <p>
+            Hi my names David, I am a Software Engineer by trade. I want to use
+            this blog as an excuse to write about media I enjoy.
+          </p>
         </div>
 
         <span className="expand-list__button" onClick={openArticles}>
@@ -18,10 +21,7 @@ export class Footer extends React.Component {
             as letterspacing is applied to the end of words
             creating a strange underline offset 
           */}
-          <span
-            className="expand
-          -list__text expand-list__text--no-spacing"
-          >
+          <span className="expand-list__text expand-list__text--no-spacing">
             E
           </span>
         </span>

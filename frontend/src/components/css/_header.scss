@@ -9,18 +9,26 @@
   flex: 1;
   position: relative;
   margin-bottom: 10px;
-  margin-left: 12px;
+  margin-left: 10px;
 }
 
 .about-me__link {
   position: absolute;
   text-decoration: none;
+  border-bottom: 2px solid black;
+  transition: 0.25s;
   bottom: 0;
   left: 0;
 }
 
 .about-me__link:visited {
   color: gray;
+  border-bottom-color: gray;
+}
+
+.about-me__link:hover {
+  color: white;
+  border-bottom-color: white;
 }
 
 .title {
@@ -37,13 +45,6 @@
   color: white;
 }
 
-.search {
+.spacer {
   flex: 1;
-  position: relative;
-}
-
-.search__icon {
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }

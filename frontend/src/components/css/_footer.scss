@@ -3,7 +3,7 @@
   grid-row: 4/5;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: #333333;
 }
 
@@ -13,6 +13,13 @@
   grid-row: 1/2;
   font-size: 1em;
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  .footer__text {
+    grid-column: 1/4;
+    margin: 0 64px;
+  }
 }
 
 .expand-list__button {
@@ -31,7 +38,7 @@
 }
 
 .expand-list__text {
-  margin-left: 2px;
+  margin-left: 4px;
   font-weight: bold;
   font-size: 1.5em;
   letter-spacing: 0.1em;
@@ -39,5 +46,6 @@
 
 .expand-list__text--no-spacing {
   margin-left: 0;
+  margin-right: 2px;
   letter-spacing: 0;
 }
