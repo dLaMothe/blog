@@ -22,7 +22,14 @@ export default class ArticleContainer extends React.Component {
     const article = this.state.article;
 
     if (article) {
-      return <Article article={article} />;
+      return (
+        <Article
+          title={article.title}
+          body={article.body}
+          date_created={article.date_created}
+          categories={article.categories}
+        />
+      );
     } else {
       return null;
     }

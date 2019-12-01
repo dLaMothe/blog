@@ -10,7 +10,7 @@ export class Footer extends React.Component {
         <div className="footer__text">
           <p>
             Hi my names David, I am a Software Engineer by trade. I want to use
-            this blog as an excuse to write about media I enjoy.
+            this blog as an excuse to write about things I enjoy.
           </p>
         </div>
 
