@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export class Footer extends React.Component {
   render() {
-    const { openArticles } = this.props;
+    const { openArticles, isDisplayed } = this.props;
 
     return (
       <footer className="footer main__item">
@@ -15,14 +15,16 @@ export class Footer extends React.Component {
         </div>
 
         <span className="expand-list__button" onClick={openArticles}>
-          <span className="expand-list__text">MOR</span>
+          <span className="expand-list__text">
+            {isDisplayed ? 'LES' : 'MOR'}
+          </span>
           {/* 
             We have to separate the last letter 
             as letterspacing is applied to the end of words
             creating a strange underline offset 
           */}
           <span className="expand-list__text expand-list__text--no-spacing">
-            E
+            {isDisplayed ? 'S' : 'E'}
           </span>
         </span>
       </footer>
