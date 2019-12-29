@@ -13,7 +13,7 @@ ENV PATH /env/bin:$PATH
 # Copy the application's requirements.txt and run pip to install all
 # dependencies into the virtualenv.
 ADD requirements.txt requirements.txt
-COPY . .
+COPY backend .
 
 
 RUN apk update && \
