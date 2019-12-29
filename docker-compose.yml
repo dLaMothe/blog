@@ -11,5 +11,6 @@ services:
     image: blog-frontend
     build:
       context: ./frontend
+      dockerfile: Dockerfile.frontend
     ports:
       - "8080:80"
