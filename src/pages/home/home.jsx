@@ -20,7 +20,7 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/blog/posts/')
+    fetch('/api/posts/')
       .then(response => response.json())
       .then(articles => {
         this.setState({

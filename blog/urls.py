@@ -17,14 +17,15 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from posts import views
+from posts.views import index, PostViewSet, CommentViewSet, CategoryViewSet
 
 router = routers.DefaultRouter()
-router.register(r'posts', views.PostViewSet)
-router.register(r'comments', views.CommentViewSet)
-router.register(r'categories', views.CategoryViewSet)
+router.register(r'posts', PostViewSet)
+router.register(r'comments', CommentViewSet)
+router.register(r'categories', CategoryViewSet)
 
 urlpatterns = [
-    path('blog/', include(router.urls)),
+    path('', index, name='index'),
+    path('api/', include(router.urls)),
     url(r'^admin/', admin.site.urls)
 ]

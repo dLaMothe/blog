@@ -9,7 +9,7 @@ export default class ArticleContainer extends React.Component {
 
   //TODO: Find some time to make this work conceptually with hooks
   componentDidMount() {
-    fetch('/blog/posts/' + this.props.match.params.id + '/')
+    fetch('/api/posts/' + this.props.match.params.id + '/')
       .then(response => response.json())
       .then(article => {
         this.setState({
