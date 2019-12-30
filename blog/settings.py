@@ -30,19 +30,18 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
     'posts',
-    # Third party apps
-    'whitenoise.runserver_nostatic',
     'rest_framework',
 ]
 
