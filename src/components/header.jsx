@@ -7,7 +7,7 @@ export default class Header extends React.Component {
       <header className="header main__item">
         <div className="about-me">
           <Link className="about-me__link" to="/about">
-            About Mich
+            <span className="about-me__text">about mich</span>
           </Link>
         </div>
         <div className="title">
@@ -15,7 +15,7 @@ export default class Header extends React.Component {
             <h3>reasons unknown</h3>
           </div>
         </div>
-        <div className="spacer"></div>
+        <div className="spacer" />
       </header>
     );
   }

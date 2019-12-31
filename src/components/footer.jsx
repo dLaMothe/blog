@@ -14,19 +14,11 @@ export class Footer extends React.Component {
           </p>
         </div>
 
-        <span className="expand-list__button" onClick={openArticles}>
+        <button className="expand-list__button" onClick={openArticles}>
           <span className="expand-list__text">
-            {isDisplayed ? 'LES' : 'MOR'}
+            {isDisplayed ? 'less' : 'more'}
           </span>
-          {/* 
-            We have to separate the last letter 
-            as letterspacing is applied to the end of words
-            creating a strange underline offset 
-          */}
-          <span className="expand-list__text expand-list__text--no-spacing">
-            {isDisplayed ? 'S' : 'E'}
-          </span>
-        </span>
+        </button>
       </footer>
     );
   }
