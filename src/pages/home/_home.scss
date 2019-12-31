@@ -1,12 +1,3 @@
-@keyframes slideInFromLeft {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
-}
-
 $featured_article-color-map: (
   blue: blue,
   yellow: yellow,
@@ -91,7 +82,7 @@ $featured_article-color-map: (
   font-family: "Overpass", sans-serif;
   text-decoration: none;
   text-align: center;
-  transition: 0.5s;
+  transition: 0.15s;
 }
 
 .featured_article__headline:hover .featured_article__title {
@@ -102,7 +93,13 @@ $featured_article-color-map: (
   grid-column: 1/2;
   grid-row: 4/5;
   text-align: center;
+  transition: 0.15s;
 }
+
+.featured_article__headline:hover .featured_article__abstract {
+  font-size: 18px;
+}
+
 .featured_article__right {
   grid-column: 3/4;
   grid-row: 2/5;
@@ -137,7 +134,7 @@ $featured_article-color-map: (
 
 .featured_article__button {
   opacity: 0.4;
-  transition-duration: 0.3s;
+  transition-duration: 0.15s;
 }
 
 .featured_article__button:hover {
