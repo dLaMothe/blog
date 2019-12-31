@@ -7,14 +7,6 @@
   background-color: #333333;
 }
 
-.footer__text {
-  color: white;
-  grid-column: 2/3;
-  grid-row: 1/2;
-  font-size: 1em;
-  text-align: center;
-}
-
 @media (max-width: 800px) {
   .footer__text {
     grid-column: 1/4;

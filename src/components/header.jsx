@@ -11,9 +11,13 @@ export default class Header extends React.Component {
           </Link>
         </div>
         <div className="title">
-          <div className="title__text">
+          <div className="title__header">
             <h3>reasons unknown</h3>
           </div>
+          <p className="title__text">
+            Hi my names David, I am a Software Engineer by trade. I want to use
+            this blog as an excuse to write about things I enjoy
+          </p>
         </div>
         <div className="spacer" />
       </header>

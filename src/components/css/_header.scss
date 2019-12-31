@@ -40,13 +40,17 @@
   position: relative;
 }
 
-.title__text {
-  height: 100%;
+.title__header {
   padding-top: 5vh;
   font-size: 2em;
   text-align: center;
   vertical-align: middle;
   color: white;
+}
+
+.title__text {
+  color: white;
+  font-size: 1em;
 }
 
 .spacer {
