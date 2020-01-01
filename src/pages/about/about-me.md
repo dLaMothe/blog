@@ -1,0 +1,12 @@
+Hi, my name is David. A Web Developer living in Germany. I originally come from Vancouver Island in West Canada, but decided to move abroad relatively early on in my career. The reasons for this are many, but the fundemental one being I wanted to challenge myself, both in the kind of culture I would be experiencing and the kind of career I would have.
+
+I started creating this blog to brush up on some tooling while I was transitioning from my last job. My relatively early programming career (~5 Years) has had me across a variety of tech stacks (C#, Kotlin, Python, a little Go, Angular, React). As I haven't had much of a chance to really master one ecosystem, it is important I am able to test things out and catch up when a new challenge faces me.
+
+That being said now I want to get this live and really start iterating on my writing ability and use it as an excuse to collect my thoughts and put them down is a semi-structured format. Though I might occasionally talk about my work, I mostly want to talk about topics that are of interest to me.
+
+Some that might come up include:
+
+- **Journalling:** I think people don't stop enough to consider the way the world is going and how what they work on effects it. I want to spend more and more time looking and how the things I'm doing impact myself and others
+- **Film:** before I switched into Computer Science I went to school for two years in Creative Writing. My dream back then was to be a Film Critic, but I decided against it for an option I saw as more practical and useful.
+- **Games:** I have been playing games since my early childhood and has always been my go to method of relaxation when I want to truly focus my mind. I think this medium is amazing and it is still only in its infancy. Though it's quickly becoming one of the most profitable media industries there is still so much space for development and improvement. I hope to be able to give my thoughts and the changes of the upcoming years happen.
+- **Team Dynamics:** I have yet to work on a project where I would say I was pushing the boundaries of what's happening in the development world. I haven't contributed to any widely used open source projects, and I haven't started any successful side businesses. What I do have is a few years on development teams and observations about how their processes and interpersonal dynamics play out. I hope to reflect on this in a helpful way
