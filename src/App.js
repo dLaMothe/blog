@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Routes from './pages/routes/routes';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Routes />
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
