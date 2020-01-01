@@ -7,33 +7,41 @@
 
 .about-me {
   flex: 1;
+  display: flex;
+  align-items: flex-end;
   position: relative;
   margin-bottom: 10px;
   margin-left: 10px;
 }
 
-.about-me__text {
+.about-me__text,
+:visited {
   font-size: 1.5em;
+  width: 100%;
+  border-bottom: 2px solid gray;
+
+  @media (max-width: 800px) {
+    font-size: 18px;
+  }
+}
+
+.about-me__text:hover {
+  color: white;
+  border-bottom-color: white;
 }
 
 .about-me__link {
-  position: absolute;
+  display: inline;
   text-decoration: none;
   color: gray;
-  border-bottom: 2px solid gray;
   transition: 0.15s;
-  bottom: 0;
-  left: 0;
 }
 
 .about-me__link:visited {
   color: gray;
-  border-bottom-color: gray;
 }
 
 .about-me__link:hover {
-  color: white;
-  border-bottom-color: white;
 }
 
 .title {
@@ -47,11 +55,21 @@
   text-align: center;
   vertical-align: middle;
   color: white;
+
+  @media (max-width: 800px) {
+    padding: 0;
+    font-size: 24px;
+  }
 }
 
 .title__text {
   color: white;
   font-size: 1em;
+
+  @media (max-width: 800px) {
+    padding: 0;
+    font-size: 12px;
+  }
 }
 
 .spacer {
