@@ -45,9 +45,10 @@
 
 .article__body {
   color: #f3f3f3;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 18px;
+  max-width: 40em;
   line-height: 24px;
   flex: 1 1 auto;
 
