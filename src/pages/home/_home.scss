@@ -74,6 +74,10 @@ $featured_article-color-map: (
   color: #333333;
   font-size: 12px;
   writing-mode: vertical-lr;
+
+  @media (max-width: 800px) {
+    writing-mode: horizontal-tb;
+  }
 }
 
 .featured_article__title {
