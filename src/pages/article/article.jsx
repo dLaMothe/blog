@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Tram } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import Markdown from '../../components/markdown';
+import { formatArticleDate } from '../../utils.js';
 import marked from 'marked';
 
 export default class Article extends React.Component {
@@ -11,7 +12,7 @@ export default class Article extends React.Component {
     return (
       <div className="article">
         <div className="article__header">
-          <div className="article__date">{date_created}</div>
+          <div className="article__date">{formatArticleDate(date_created)}</div>
           <div className="article__icon">
             <Tram />
           </div>
