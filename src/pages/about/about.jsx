@@ -31,12 +31,28 @@ export default class About extends React.Component {
 
     if (article) {
       return (
-        <Article
-          title={article.title}
-          body={article.body}
-          date_created={article.date_created}
-          categories={article.categories}
-        />
+        <div>
+          <Article
+            title={article.title}
+            body={article.body}
+            date_created={article.date_created}
+            categories={article.categories}
+          />
+          <div className="social">
+            <a href="https://github.com/dlamothe" className="social__link">
+              Github
+            </a>
+            <a
+              href="https://www.linkedin.com/in/davidalamothe/"
+              className="social__link"
+            >
+              LinkedIn
+            </a>
+            <a href="mailto:david.a.lamothe@gmail.com" className="social__link">
+              Email
+            </a>
+          </div>
+        </div>
       );
     } else {
       return null;
