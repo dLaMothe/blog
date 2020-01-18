@@ -4,13 +4,13 @@ services:
   backend:
     image: blog-backend
     build:
-      context: ./backend
+      context: .
     ports:
       - "8000:8000"
   frontend:
     image: blog-frontend
     build:
-      context: ./frontend
+      context: .
       dockerfile: Dockerfile.frontend
     ports:
       - "8080:80"
