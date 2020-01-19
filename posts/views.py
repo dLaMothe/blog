@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.shortcuts import get_object_or_404
 from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView
 from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from posts.models import Post, Category, Comment
 from posts.serializers import PostSerializer, CategorySerializer, CommentSerializer
 # Create your views here.
@@ -17,12 +21,22 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
 
 
-class CategoryViewSet(viewsets.ModelViewSet):
+class CategoryViewSet(viewsets.ViewSet):
     """
-    API endpoint that allows categorys to be viewed or edited.
+    API endpoint that allows categories to be viewed or edited.
     """
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+
+    def list(self, request):
+        queryset = Category.objects.all()
+        serializer = CategorySerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        queryset = Post.objects.filter(
+            categories=pk
+        ).order_by("-date_created")
+        serializer = PostSerializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 class CommentViewSet(viewsets.ModelViewSet):

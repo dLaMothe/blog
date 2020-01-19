@@ -1,19 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Tram } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import { formatArticleDate } from '../../utils';
 
 export class ArticleList extends React.Component {
-  componentDidMount() {
-    var i = 10;
-    var int = setInterval(function() {
-      window.scrollTo(0, i);
-      i += 10;
-      if (i >= 200) clearInterval(int);
-    }, 20);
-  }
-
   render() {
     const { articles } = this.props;
     return (
@@ -29,18 +19,13 @@ export class ArticleList extends React.Component {
                 className="article-list__link"
               >
                 <div className="article-list-headline">
-                  <div className="article-list-headline__icon">
-                    <Tram />
-                  </div>
-                  <div className="article-list-headline__title">
-                    <h3>{article.title}</h3>
-                  </div>
+                  <h3 className="article-list-headline__title">
+                    {article.title}
+                  </h3>
+
+                  <p className="article-list__abstract">{article.abstract}</p>
                 </div>
               </Link>
-
-              <article className="article-list__abstract">
-                <p>{article.abstract}</p>
-              </article>
             </div>
           );
         })}

@@ -22,7 +22,7 @@ from posts.views import index, PostViewSet, CommentViewSet, CategoryViewSet
 router = routers.DefaultRouter()
 router.register(r'posts', PostViewSet)
 router.register(r'comments', CommentViewSet)
-router.register(r'categories', CategoryViewSet)
+router.register(r'categories', CategoryViewSet, basename='categories')
 
 urlpatterns = [
     path('', index, name='index'),
