@@ -1,19 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Tram } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import { formatArticleDate } from '../../utils';
 
 export class ArticleList extends React.Component {
-  componentDidMount() {
-    var i = 10;
-    var int = setInterval(function() {
-      window.scrollTo(0, i);
-      i += 10;
-      if (i >= 200) clearInterval(int);
-    }, 20);
-  }
-
   render() {
     const { articles } = this.props;
     return (

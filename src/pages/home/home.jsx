@@ -8,12 +8,10 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isDisplayed: false,
       latestArticles: [],
       articles: [],
       articleIndex: null
     };
-    this.displayList = this.displayList.bind(this);
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.updateArticleIndex = this.updateArticleIndex.bind(this);
@@ -28,10 +26,6 @@ export default class Home extends React.Component {
           articles: articles
         });
       });
-  }
-
-  displayList() {
-    this.setState({ isDisplayed: !this.state.isDisplayed });
   }
 
   getNext(arr, index) {
@@ -77,17 +71,12 @@ export default class Home extends React.Component {
               backArticle={backArticle}
               forwardArticle={forwardArticle}
             />
-            <Footer
-              openArticles={this.displayList}
-              isDisplayed={this.state.isDisplayed}
-            />
+            <Footer />
           </div>
         )}
-        {this.state.isDisplayed && (
-          <div className="home__list">
-            <ArticleList articles={articles} />
-          </div>
-        )}
+        <div className="home__list">
+          <ArticleList articles={articles} />
+        </div>
       </div>
     );
   }
