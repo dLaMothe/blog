@@ -1,16 +1,8 @@
-@keyframes colorTrans {
-  from {
-    color: #333333;
-  }
-  to {
-    color: red;
-  }
-}
-
 .article-list {
   display: flex;
   flex-direction: column;
   background-color: #333333;
+  transition: 0.15s;
 }
 
 .article-list__grid {
@@ -23,24 +15,22 @@
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #ffffff;
+  color: gray;
   overflow: hidden;
   display: flex;
   height: 11vh;
   flex-direction: column;
   transition: height 1s;
-  font-family: "Overpass", sans-serif;
   display: inline-block;
   text-align: center;
   width: 100%;
   height: 50%;
+  transition: 0.15s;
 }
 
 .article-list-headline:hover {
   height: 100%;
-  border-top-color: red;
-  animation-name: colorTrans;
-  animation-fill-mode: forwards;
-  animation-duration: 1s;
+  font-size: 1.2em;
 }
 
 .article-list__link:visited {
@@ -66,7 +56,7 @@
 .article-list__abstract {
   font-size: 12px;
   line-height: 0.6cm;
-  color: white;
+  color: gray;
   grid-column: 3/4;
   grid-row: 2/3;
   text-align: center;

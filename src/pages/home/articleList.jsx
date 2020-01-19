@@ -29,18 +29,13 @@ export class ArticleList extends React.Component {
                 className="article-list__link"
               >
                 <div className="article-list-headline">
-                  <div className="article-list-headline__icon">
-                    <Tram />
-                  </div>
-                  <div className="article-list-headline__title">
-                    <h3>{article.title}</h3>
-                  </div>
+                  <h3 className="article-list-headline__title">
+                    {article.title}
+                  </h3>
+
+                  <p className="article-list__abstract">{article.abstract}</p>
                 </div>
               </Link>
-
-              <article className="article-list__abstract">
-                <p>{article.abstract}</p>
-              </article>
             </div>
           );
         })}
