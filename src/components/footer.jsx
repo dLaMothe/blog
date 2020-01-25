@@ -7,7 +7,7 @@ export class Footer extends React.Component {
   }
 
   handleScroll = event => {
-    const target = document.getElementsByClassName('tags')[0];
+    const target = document.getElementsByClassName('categories')[0];
     if (target) {
       target.scrollIntoView({
         behavior: 'smooth',
