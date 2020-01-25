@@ -7,11 +7,11 @@ export class Footer extends React.Component {
   }
 
   handleScroll = event => {
-    const target = document.getElementsByClassName('article-list')[0];
+    const target = document.getElementsByClassName('tags')[0];
     if (target) {
       target.scrollIntoView({
         behavior: 'smooth',
-        block: 'nearest'
+        block: 'start'
       });
     }
   };
