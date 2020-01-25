@@ -17,14 +17,4 @@
 :visited {
   padding: 16px;
   color: gray;
-  transition: $baseTransitionTime;
-}
-
-.categories__text:hover {
-  color: white;
-  cursor: pointer;
-}
-
-.categories__text--selected {
-  color: white;
 }
