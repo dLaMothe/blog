@@ -12,7 +12,7 @@ export default class Home extends React.Component {
       latestArticles: [],
       articles: [],
       articleIndex: null,
-      tagArticles: null
+      tagArticles: []
     };
     this.setTagArticles = this.setTagArticles.bind(this);
     this.getNext = this.getNext.bind(this);
@@ -31,10 +31,14 @@ export default class Home extends React.Component {
       });
   }
 
-  setTagArticles(articles) {
-    this.setState({
-      tagArticles: articles
-    });
+  setTagArticles(tagId) {
+    fetch(`/api/categories/${tagId}/`)
+      .then(response => response.json())
+      .then(articles => {
+        this.setState({
+          tagArticles: articles
+        });
+      });
   }
 
   getNext(arr, index) {
@@ -63,8 +67,9 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const { articles, articleIndex } = this.state;
+    const { articles, tagArticles, articleIndex } = this.state;
 
+    const selectedArticles = tagArticles.length > 0 ? tagArticles : articles;
     const currentArticle = articles[articleIndex];
     const backArticle = () => this.updateArticleIndex(articles.length, 1);
     const forwardArticle = () => this.updateArticleIndex(articles.length, -1);
@@ -85,7 +90,7 @@ export default class Home extends React.Component {
         )}
         <div className="home__list">
           <Tags setTagArticles={this.setTagArticles} />
-          <ArticleList articles={articles} />
+          <ArticleList articles={selectedArticles} />
         </div>
       </div>
     );
