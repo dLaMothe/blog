@@ -1,8 +1,9 @@
 import * as React from 'react';
-import Header from '../../components/header';
-import FeaturedArticles from './featuredArticle';
 import ArticleList from './articleList';
+import FeaturedArticles from './featuredArticle';
 import Footer from '../../components/footer';
+import Header from '../../components/header';
+import Tags from './tags';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -10,8 +11,10 @@ export default class Home extends React.Component {
     this.state = {
       latestArticles: [],
       articles: [],
-      articleIndex: null
+      articleIndex: null,
+      tagArticles: null
     };
+    this.setTagArticles = this.setTagArticles.bind(this);
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.updateArticleIndex = this.updateArticleIndex.bind(this);
@@ -26,6 +29,12 @@ export default class Home extends React.Component {
           articles: articles
         });
       });
+  }
+
+  setTagArticles(articles) {
+    this.setState({
+      tagArticles: articles
+    });
   }
 
   getNext(arr, index) {
@@ -75,6 +84,7 @@ export default class Home extends React.Component {
           </div>
         )}
         <div className="home__list">
+          <Tags setTagArticles={this.setTagArticles} />
           <ArticleList articles={articles} />
         </div>
       </div>
