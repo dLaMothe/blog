@@ -57,8 +57,8 @@ export default class Home extends React.Component {
     const { articles, articleIndex } = this.state;
 
     const currentArticle = articles[articleIndex];
-    const backArticle = () => this.updateArticleIndex(articles.length, -1);
-    const forwardArticle = () => this.updateArticleIndex(articles.length, 1);
+    const backArticle = () => this.updateArticleIndex(articles.length, 1);
+    const forwardArticle = () => this.updateArticleIndex(articles.length, -1);
 
     return (
       <div className="home">
