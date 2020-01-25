@@ -7,7 +7,7 @@ export class Footer extends React.Component {
   }
 
   handleScroll = event => {
-    const target = document.getElementsByClassName('categories')[0];
+    const target = document.getElementsByClassName('tags')[0];
     if (target) {
       target.scrollIntoView({
         behavior: 'smooth',
@@ -20,7 +20,7 @@ export class Footer extends React.Component {
     return (
       <footer className="footer main__item">
         <button className="expand-list__button" onClick={this.handleScroll}>
-          <span className="expand-list__text">all articles</span>
+          <span className="expand-list__text">more</span>
         </button>
       </footer>
     );
