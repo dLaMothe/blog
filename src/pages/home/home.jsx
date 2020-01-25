@@ -3,7 +3,7 @@ import ArticleList from './articleList';
 import FeaturedArticles from './featuredArticle';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
-import Tags from './tags';
+import Categories from './categories';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -12,9 +12,9 @@ export default class Home extends React.Component {
       latestArticles: [],
       articles: [],
       articleIndex: null,
-      tagArticles: []
+      categoryArticles: []
     };
-    this.setTagArticles = this.setTagArticles.bind(this);
+    this.setCategory = this.setCategory.bind(this);
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.updateArticleIndex = this.updateArticleIndex.bind(this);
@@ -31,12 +31,12 @@ export default class Home extends React.Component {
       });
   }
 
-  setTagArticles(tagId) {
-    fetch(`/api/categories/${tagId}/`)
+  setCategory(categoryId) {
+    fetch(`/api/categories/${categoryId}/`)
       .then(response => response.json())
       .then(articles => {
         this.setState({
-          tagArticles: articles
+          categoryArticles: articles
         });
       });
   }
@@ -67,9 +67,10 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const { articles, tagArticles, articleIndex } = this.state;
+    const { articles, categoryArticles, articleIndex } = this.state;
 
-    const selectedArticles = tagArticles.length > 0 ? tagArticles : articles;
+    const selectedArticles =
+      categoryArticles.length > 0 ? categoryArticles : articles;
     const currentArticle = articles[articleIndex];
     const backArticle = () => this.updateArticleIndex(articles.length, 1);
     const forwardArticle = () => this.updateArticleIndex(articles.length, -1);
@@ -89,7 +90,7 @@ export default class Home extends React.Component {
           </div>
         )}
         <div className="home__list">
-          <Tags setTagArticles={this.setTagArticles} />
+          <Categories setCategory={this.setCategory} />
           <ArticleList articles={selectedArticles} />
         </div>
       </div>

@@ -1,19 +1,19 @@
-.tags {
+.categories {
   text-align: center;
   color: white;
 }
 
-.tags__title {
+.categories__title {
   margin: 0;
 }
 
-.tags__flex {
+.categories__flex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.tags__text,
+.categories__text,
 :visited {
   padding: 16px;
   color: gray;
