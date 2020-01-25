@@ -23,9 +23,16 @@ export default class Tags extends React.Component {
 
     return (
       <div className="tags">
-        {tags.map((tag, key) => {
-          return <span className="tags__text">{tag.name}</span>;
-        })}
+        <h1 className="tags__title">Filter By</h1>
+        <div className="tags__flex">
+          {tags.map((tag, key) => {
+            return (
+              <span key={key} className="tags__text">
+                #{tag.name}
+              </span>
+            );
+          })}
+        </div>
       </div>
     );
   }
