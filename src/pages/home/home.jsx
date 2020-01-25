@@ -1,8 +1,9 @@
 import * as React from 'react';
-import Header from '../../components/header';
-import FeaturedArticles from './featuredArticle';
 import ArticleList from './articleList';
+import FeaturedArticles from './featuredArticle';
 import Footer from '../../components/footer';
+import Header from '../../components/header';
+import Tags from './tags';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -10,20 +11,32 @@ export default class Home extends React.Component {
     this.state = {
       latestArticles: [],
       articles: [],
-      articleIndex: null
+      articleIndex: null,
+      tagArticles: []
     };
+    this.setTagArticles = this.setTagArticles.bind(this);
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.updateArticleIndex = this.updateArticleIndex.bind(this);
   }
 
   componentDidMount() {
-    fetch("/api/posts/")
+    fetch('/api/posts/')
       .then(response => response.json())
       .then(articles => {
         this.setState({
           articleIndex: 0,
           articles: articles
+        });
+      });
+  }
+
+  setTagArticles(tagId) {
+    fetch(`/api/categories/${tagId}/`)
+      .then(response => response.json())
+      .then(articles => {
+        this.setState({
+          tagArticles: articles
         });
       });
   }
@@ -54,15 +67,9 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const {
-      articles,
-      categoryArticles,
-      articleIndex,
-      selectedCategoryId
-    } = this.state;
+    const { articles, tagArticles, articleIndex } = this.state;
 
-    const selectedArticles =
-      categoryArticles.length > 0 ? categoryArticles : articles;
+    const selectedArticles = tagArticles.length > 0 ? tagArticles : articles;
     const currentArticle = articles[articleIndex];
     const backArticle = () => this.updateArticleIndex(articles.length, 1);
     const forwardArticle = () => this.updateArticleIndex(articles.length, -1);
@@ -82,7 +89,8 @@ export default class Home extends React.Component {
           </div>
         )}
         <div className="home__list">
-          <ArticleList articles={articles} />
+          <Tags setTagArticles={this.setTagArticles} />
+          <ArticleList articles={selectedArticles} />
         </div>
       </div>
     );
