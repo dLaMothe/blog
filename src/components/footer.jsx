@@ -20,7 +20,7 @@ export class Footer extends React.Component {
     return (
       <footer className="footer main__item">
         <button className="expand-list__button" onClick={this.handleScroll}>
-          <span className="expand-list__text">more</span>
+          <span className="expand-list__text">all articles</span>
         </button>
       </footer>
     );

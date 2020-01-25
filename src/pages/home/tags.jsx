@@ -1,6 +1,7 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Tags extends React.Component {
+export class Tags extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,11 +24,12 @@ export default class Tags extends React.Component {
 
     return (
       <div className="tags">
-        <h1 className="tags__title">Filter By</h1>
+        <span className="tags__title">Filter By</span>
         <div className="tags__flex">
           {tags.map((tag, key) => {
+            const tagClickHandler = () => this.props.setTagArticles(tag.id);
             return (
-              <span key={key} className="tags__text">
+              <span onClick={tagClickHandler} className="tags__text">
                 #{tag.name}
               </span>
             );
@@ -37,3 +39,9 @@ export default class Tags extends React.Component {
     );
   }
 }
+
+Tags.propTypes = {
+  setTagArticles: PropTypes.func.isRequired
+};
+
+export default Tags;
