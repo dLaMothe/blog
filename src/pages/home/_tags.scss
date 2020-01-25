@@ -1,0 +1,20 @@
+.tags {
+  text-align: center;
+  color: white;
+}
+
+.tags__title {
+  margin: 0;
+}
+
+.tags__flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tags__text,
+:visited {
+  padding: 16px;
+  color: gray;
+}
