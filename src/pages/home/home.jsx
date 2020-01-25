@@ -1,9 +1,8 @@
-import * as React from "react";
-import ArticleList from "./articleList";
-import FeaturedArticles from "./featuredArticle";
-import Footer from "../../components/footer";
-import Header from "../../components/header";
-import Categories from "./categories";
+import * as React from 'react';
+import Header from '../../components/header';
+import FeaturedArticles from './featuredArticle';
+import ArticleList from './articleList';
+import Footer from '../../components/footer';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -11,11 +10,8 @@ export default class Home extends React.Component {
     this.state = {
       latestArticles: [],
       articles: [],
-      articleIndex: null,
-      categoryArticles: [],
-      selectedCategoryId: null
+      articleIndex: null
     };
-    this.setCategory = this.setCategory.bind(this);
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.updateArticleIndex = this.updateArticleIndex.bind(this);
@@ -28,25 +24,6 @@ export default class Home extends React.Component {
         this.setState({
           articleIndex: 0,
           articles: articles
-        });
-      });
-  }
-
-  setCategory(categoryId) {
-    if (categoryId == null) {
-      this.setState({
-        selectedCategoryId: null,
-        categoryArticles: []
-      });
-      return;
-    }
-
-    fetch(`/api/categories/${categoryId}/`)
-      .then(response => response.json())
-      .then(articles => {
-        this.setState({
-          categoryArticles: articles,
-          selectedCategoryId: categoryId
         });
       });
   }
@@ -105,11 +82,7 @@ export default class Home extends React.Component {
           </div>
         )}
         <div className="home__list">
-          <Categories
-            setCategory={this.setCategory}
-            selectedCategoryId={selectedCategoryId}
-          />
-          <ArticleList articles={selectedArticles} />
+          <ArticleList articles={articles} />
         </div>
       </div>
     );
