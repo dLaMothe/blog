@@ -1,5 +1,6 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 export class Categories extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export class Categories extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/categories')
+    fetch("/api/categories")
       .then(response => response.json())
       .then(categories => {
         this.setState({
@@ -29,8 +30,20 @@ export class Categories extends React.Component {
           {categories.map((category, key) => {
             const categoryClickHandler = () =>
               this.props.setCategory(category.id);
+            const resetCategoryClickHandler = () => this.props.setCategory();
+            const isSelected = category.id === this.props.selectedCategoryId;
+            const textClass = classNames({
+              categories__text: true,
+              "categories__text--selected": isSelected
+            });
             return (
-              <span onClick={categoryClickHandler} className="categories__text">
+              <span
+                onClick={
+                  isSelected ? resetCategoryClickHandler : categoryClickHandler
+                }
+                key={key}
+                className={textClass}
+              >
                 #{category.name}
               </span>
             );
@@ -42,7 +55,8 @@ export class Categories extends React.Component {
 }
 
 Categories.propTypes = {
-  setCategory: PropTypes.func.isRequired
+  setCategory: PropTypes.func.isRequired,
+  selectedCategoryId: PropTypes.number
 };
 
 export default Categories;

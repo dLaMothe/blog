@@ -1,9 +1,9 @@
-import * as React from 'react';
-import ArticleList from './articleList';
-import FeaturedArticles from './featuredArticle';
-import Footer from '../../components/footer';
-import Header from '../../components/header';
-import Categories from './categories';
+import * as React from "react";
+import ArticleList from "./articleList";
+import FeaturedArticles from "./featuredArticle";
+import Footer from "../../components/footer";
+import Header from "../../components/header";
+import Categories from "./categories";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -12,7 +12,8 @@ export default class Home extends React.Component {
       latestArticles: [],
       articles: [],
       articleIndex: null,
-      categoryArticles: []
+      categoryArticles: [],
+      selectedCategoryId: null
     };
     this.setCategory = this.setCategory.bind(this);
     this.getNext = this.getNext.bind(this);
@@ -21,7 +22,7 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/posts/')
+    fetch("/api/posts/")
       .then(response => response.json())
       .then(articles => {
         this.setState({
@@ -32,11 +33,20 @@ export default class Home extends React.Component {
   }
 
   setCategory(categoryId) {
+    if (categoryId == null) {
+      this.setState({
+        selectedCategoryId: null,
+        categoryArticles: []
+      });
+      return;
+    }
+
     fetch(`/api/categories/${categoryId}/`)
       .then(response => response.json())
       .then(articles => {
         this.setState({
-          categoryArticles: articles
+          categoryArticles: articles,
+          selectedCategoryId: categoryId
         });
       });
   }
@@ -67,7 +77,12 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const { articles, categoryArticles, articleIndex } = this.state;
+    const {
+      articles,
+      categoryArticles,
+      articleIndex,
+      selectedCategoryId
+    } = this.state;
 
     const selectedArticles =
       categoryArticles.length > 0 ? categoryArticles : articles;
@@ -90,7 +105,10 @@ export default class Home extends React.Component {
           </div>
         )}
         <div className="home__list">
-          <Categories setCategory={this.setCategory} />
+          <Categories
+            setCategory={this.setCategory}
+            selectedCategoryId={selectedCategoryId}
+          />
           <ArticleList articles={selectedArticles} />
         </div>
       </div>
