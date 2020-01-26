@@ -17,7 +17,7 @@
 :visited {
   padding: 16px;
   color: gray;
-  transition: 0.15s;
+  transition: $baseTransitionTime;
 }
 
 .categories__text:hover {
