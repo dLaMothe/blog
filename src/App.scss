@@ -1,8 +1,10 @@
-@import "main";
+@import "constants";
 @import "components/css/footer";
 @import "components/css/header";
 @import "components/css/navigation";
-@import "pages/home/home";
-@import "pages/home/article-list";
+@import "main";
 @import "pages/about/about";
 @import "pages/article/article";
+@import "pages/home/article-list";
+@import "pages/home/home";
+@import "pages/home/categories";

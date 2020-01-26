@@ -1,8 +1,9 @@
-import * as React from 'react';
-import Header from '../../components/header';
-import FeaturedArticles from './featuredArticle';
-import ArticleList from './articleList';
-import Footer from '../../components/footer';
+import * as React from "react";
+import ArticleList from "./articleList";
+import FeaturedArticles from "./featuredArticle";
+import Footer from "../../components/footer";
+import Header from "../../components/header";
+import Categories from "./categories";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -10,20 +11,42 @@ export default class Home extends React.Component {
     this.state = {
       latestArticles: [],
       articles: [],
-      articleIndex: null
+      articleIndex: null,
+      categoryArticles: [],
+      selectedCategoryId: null
     };
+    this.setCategory = this.setCategory.bind(this);
     this.getNext = this.getNext.bind(this);
     this.getPrev = this.getPrev.bind(this);
     this.updateArticleIndex = this.updateArticleIndex.bind(this);
   }
 
   componentDidMount() {
-    fetch('/api/posts/')
+    fetch("/api/posts/")
       .then(response => response.json())
       .then(articles => {
         this.setState({
           articleIndex: 0,
           articles: articles
+        });
+      });
+  }
+
+  setCategory(categoryId) {
+    if (categoryId == null) {
+      this.setState({
+        selectedCategoryId: null,
+        categoryArticles: []
+      });
+      return;
+    }
+
+    fetch(`/api/categories/${categoryId}/`)
+      .then(response => response.json())
+      .then(articles => {
+        this.setState({
+          categoryArticles: articles,
+          selectedCategoryId: categoryId
         });
       });
   }
@@ -54,11 +77,18 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const { articles, articleIndex } = this.state;
+    const {
+      articles,
+      categoryArticles,
+      articleIndex,
+      selectedCategoryId
+    } = this.state;
 
+    const selectedArticles =
+      categoryArticles.length > 0 ? categoryArticles : articles;
     const currentArticle = articles[articleIndex];
-    const backArticle = () => this.updateArticleIndex(articles.length, -1);
-    const forwardArticle = () => this.updateArticleIndex(articles.length, 1);
+    const backArticle = () => this.updateArticleIndex(articles.length, 1);
+    const forwardArticle = () => this.updateArticleIndex(articles.length, -1);
 
     return (
       <div className="home">
@@ -75,7 +105,11 @@ export default class Home extends React.Component {
           </div>
         )}
         <div className="home__list">
-          <ArticleList articles={articles} />
+          <Categories
+            setCategory={this.setCategory}
+            selectedCategoryId={selectedCategoryId}
+          />
+          <ArticleList articles={selectedArticles} />
         </div>
       </div>
     );

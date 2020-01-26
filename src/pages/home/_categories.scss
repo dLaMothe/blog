@@ -1,0 +1,30 @@
+.categories {
+  text-align: center;
+  color: white;
+}
+
+.categories__title {
+  margin: 0;
+}
+
+.categories__flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categories__text,
+:visited {
+  padding: 16px;
+  color: gray;
+  transition: $baseTransitionTime;
+}
+
+.categories__text:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.categories__text--selected {
+  color: white;
+}
