@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import get_object_or_404
 from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from rest_framework.response import Response
-from rest_framework.views import APIView
 
 from posts.models import Post, Category, Comment
 from posts.serializers import PostSerializer, CategorySerializer, CommentSerializer
-# Create your views here.
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -19,6 +16,8 @@ class PostViewSet(viewsets.ModelViewSet):
     """
     queryset = Post.objects.order_by("-date_created")
     serializer_class = PostSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['body', 'abstract', 'title']
 
 
 class CategoryViewSet(viewsets.ViewSet):
