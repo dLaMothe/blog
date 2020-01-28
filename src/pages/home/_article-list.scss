@@ -2,7 +2,7 @@
   padding-top: 64px;
   display: flex;
   flex-direction: column;
-  background-color: #333333;
+  background-color: $defaultBackgroundColor;
   transition: $baseTransitionTime;
 }
 
@@ -16,7 +16,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #ffffff;
-  color: gray;
+  color: $primaryActionColor;
   overflow: hidden;
   display: flex;
   height: 11vh;

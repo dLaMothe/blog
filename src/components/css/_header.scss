@@ -1,7 +1,7 @@
 .header {
   grid-column: 1/4;
   grid-row: 1/3;
-  background-color: #333333;
+  background-color: $defaultBackgroundColor;
   display: flex;
 }
 
@@ -33,11 +33,11 @@
 .about-me__link {
   display: inline;
   text-decoration: none;
-  color: gray;
+  color: $primaryActionColor;
 }
 
 .about-me__link:visited {
-  color: gray;
+  color: $primaryActionColor;
 }
 
 .title {
