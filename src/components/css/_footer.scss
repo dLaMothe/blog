@@ -20,7 +20,7 @@
   grid-row: 2/3;
   margin: auto;
   transition: $baseTransitionTime;
-  background-color: #333333;
+  background-color: $defaultBackgroundColor;
   border: none;
 }
 
@@ -31,7 +31,7 @@
 .expand-list__text {
   color: inherit;
   font-size: 1.5rem;
-  color: gray;
+  color: $primaryActionColor;
   transition: $baseTransitionTime;
 }
 
