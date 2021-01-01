@@ -93,24 +93,26 @@ export default class Home extends React.Component {
     return (
       <div className="home">
         {articles.length > 0 && (
-          <div className="main">
-            <Header />
-            <FeaturedArticles
-              article={currentArticle}
-              articleIndex={articleIndex}
-              backArticle={backArticle}
-              forwardArticle={forwardArticle}
-            />
-            <Footer />
-          </div>
+          <>
+            <div className="main">
+              <Header />
+              <FeaturedArticles
+                article={currentArticle}
+                articleIndex={articleIndex}
+                backArticle={backArticle}
+                forwardArticle={forwardArticle}
+              />
+              <Footer />
+            </div>
+            <div className="home__list">
+              <Categories
+                setCategory={this.setCategory}
+                selectedCategoryId={selectedCategoryId}
+              />
+              <ArticleList articles={selectedArticles} />
+            </div>
+          </>
         )}
-        <div className="home__list">
-          <Categories
-            setCategory={this.setCategory}
-            selectedCategoryId={selectedCategoryId}
-          />
-          <ArticleList articles={selectedArticles} />
-        </div>
       </div>
     );
   }
