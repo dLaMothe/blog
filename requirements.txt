@@ -12,7 +12,7 @@ lazy-object-proxy==1.5.2
 mccabe==0.6.1
 psycopg2==2.8.6
 pycodestyle==2.6.0
-pylint==2.4.4
+pylint==2.13.5
 pylint-django==2.3.0
 pylint-plugin-utils==0.6
 pyt==1.0.5
